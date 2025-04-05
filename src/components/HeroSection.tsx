@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
+import MyImage from "../assets/MyImage.png";
 
 interface HeroSectionProps {
   name?: string;
@@ -16,16 +17,23 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({
-  name = "John Doe",
+  name = "Henry Dominic Alicoben",
   title = "Full Stack Developer",
   description = "I build exceptional and accessible digital experiences for the web. Focused on creating intuitive, user-friendly applications with modern technologies.",
-  avatarUrl = "https://api.dicebear.com/7.x/avataaars/svg?seed=portfolio",
+  avatarUrl = MyImage,
   socialLinks = {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    email: "mailto:hello@example.com",
+    github: "https://github.com/DvineConqueror",
+    linkedin: "https://ph.linkedin.com/in/henrydominicalicoben",
+    email: "mailto:hdominic2016@gmail.com",
   },
 }: HeroSectionProps) => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center bg-background px-4 py-20 md:py-32">
       {/* Background gradient */}
@@ -52,7 +60,7 @@ const HeroSection = ({
 
             {/* CTA and social links */}
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-              <Button size="lg" className="rounded-full">
+              <Button size="lg" className="rounded-full" onClick={() => scrollToSection("projects")}>
                 View My Work
                 <ArrowDown className="ml-2 h-4 w-4" />
               </Button>

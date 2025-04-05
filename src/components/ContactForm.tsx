@@ -96,7 +96,7 @@ const ContactForm = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input placeholder="Your name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -112,7 +112,7 @@ const ContactForm = () => {
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="john.doe@example.com"
+                        placeholder="your.email@example.com"
                         {...field}
                       />
                     </FormControl>
@@ -171,7 +171,7 @@ const ContactForm = () => {
         </CardContent>
         <CardFooter className="flex justify-center text-sm text-muted-foreground">
           You can also reach me directly at{" "}
-          <span className="font-medium mx-1">contact@example.com</span>
+          <span className="font-medium mx-1">hdominic2016@gmail.com</span>
         </CardFooter>
       </Card>
     </div>

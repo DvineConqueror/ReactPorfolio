@@ -30,7 +30,7 @@ const Home = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-xl font-bold">Portfolio</div>
+          <div className="text-xl font-bold">My Portfolio</div>
           <div className="flex items-center gap-6">
             <button
               onClick={() => scrollToSection("hero")}
@@ -73,7 +73,7 @@ const Home = () => {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-16">
+      <main>
         {" "}
         {/* Add padding to account for fixed navbar */}
         {/* Hero Section */}
@@ -83,25 +83,18 @@ const Home = () => {
         {/* Projects Section */}
         <section id="projects" className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              My Projects
-            </h2>
             <ProjectsGrid />
           </div>
         </section>
         {/* Skills Section */}
-        <section id="skills" className="py-20">
+        <section id="skills">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">My Skills</h2>
             <SkillsSection />
           </div>
         </section>
         {/* Contact Section */}
         <section id="contact" className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Get In Touch
-            </h2>
             <div className="max-w-2xl mx-auto">
               <ContactForm />
             </div>
@@ -117,7 +110,7 @@ const Home = () => {
           </p>
           <div className="flex justify-center gap-4 mt-4">
             <a
-              href="https://github.com"
+              href="https://github.com/DvineConqueror"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -125,7 +118,7 @@ const Home = () => {
               GitHub
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://ph.linkedin.com/in/henrydominicalicoben"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -133,12 +126,12 @@ const Home = () => {
               LinkedIn
             </a>
             <a
-              href="https://twitter.com"
+              href="https://www.facebook.com/dominicalicoben"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
-              Twitter
+              Facebook
             </a>
           </div>
         </div>

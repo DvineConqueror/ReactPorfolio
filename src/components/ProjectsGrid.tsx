@@ -9,7 +9,7 @@ interface Project {
   id: string;
   title: string;
   description: string;
-  category: string;
+  category: string | string[];
   image: string;
   demoUrl?: string;
   githubUrl?: string;
@@ -24,21 +24,21 @@ const ProjectsGrid = ({ projects = [] }: ProjectsGridProps) => {
   const defaultProjects: Project[] = [
     {
       id: "1",
-      title: "E-Commerce Website",
+      title: "Smart DTR",
       description:
-        "A fully responsive e-commerce platform built with React and Node.js",
-      category: "Web Development",
+        "An online platform designed to make Daily Time Record (DTR) management more efficient and accessible.",
+      category: "Mobile",
       image:
         "https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80",
       demoUrl: "https://example.com",
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/DvineConqueror/SMARTDTR-remade",
     },
     {
       id: "2",
-      title: "Mobile Banking App",
+      title: "RaceConnect",
       description:
-        "A secure and intuitive banking application for iOS and Android",
-      category: "Mobile",
+        "A dedicated social media platform for motorsports enthusiasts.",
+      category: ["Mobile", "Web Development"],
       image:
         "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
       demoUrl: "https://example.com",
@@ -91,7 +91,7 @@ const ProjectsGrid = ({ projects = [] }: ProjectsGridProps) => {
   // Get unique categories from projects
   const categories = [
     "All",
-    ...new Set(allProjects.map((project) => project.category)),
+    ...new Set(allProjects.flatMap((project) => Array.isArray(project.category) ? project.category : [project.category])),
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -100,7 +100,7 @@ const ProjectsGrid = ({ projects = [] }: ProjectsGridProps) => {
   const filteredProjects =
     selectedCategory === "All"
       ? allProjects
-      : allProjects.filter((project) => project.category === selectedCategory);
+      : allProjects.filter((project) => Array.isArray(project.category) ? project.category.includes(selectedCategory) : project.category === selectedCategory);
 
   return (
     <div className="w-full py-16 px-4 md:px-8 bg-background">
@@ -205,7 +205,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <CardContent className="p-5">
           <div className="flex justify-between items-start mb-2">
             <h3 className="font-bold text-xl">{project.title}</h3>
-            <Badge variant="secondary">{project.category}</Badge>
+            <Badge variant="secondary">{Array.isArray(project.category) ? project.category.join(', ') : project.category}</Badge>
           </div>
           <p className="text-muted-foreground text-sm">{project.description}</p>
         </CardContent>
