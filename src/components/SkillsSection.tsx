@@ -58,7 +58,7 @@ const SkillsSection = ({
               <TabsTrigger
                 key={category.name}
                 value={category.name.toLowerCase()}
-                className="text-sm md:text-base"
+                className="text-sm"
               >
                 {category.name}
               </TabsTrigger>
@@ -116,23 +116,23 @@ const defaultCategories: SkillCategory[] = [
   {
     name: "Frontend",
     skills: [
-      { name: "React", level: 90, icon: <Code size={24} /> },
-      { name: "TypeScript", level: 85, icon: <Code size={24} /> },
-      { name: "Tailwind CSS", level: 88, icon: <Palette size={24} /> },
-      { name: "Next.js", level: 80, icon: <Globe size={24} /> },
-      { name: "HTML/CSS", level: 95, icon: <Layers size={24} /> },
-      { name: "JavaScript", level: 92, icon: <Code size={24} /> },
+      { name: "React", level: 20, icon: <Code size={24} /> },
+      { name: "TypeScript", level: 30, icon: <Code size={24} /> },
+      { name: "Tailwind CSS", level: 70, icon: <Palette size={24} /> },
+      { name: "Next.js", level: 10, icon: <Globe size={24} /> },
+      { name: "HTML/CSS", level: 100, icon: <Layers size={24} /> },
+      { name: "JavaScript", level: 80, icon: <Code size={24} /> },
     ],
   },
   {
     name: "Backend",
     skills: [
-      { name: "Node.js", level: 82, icon: <Server size={24} /> },
-      { name: "Express", level: 78, icon: <Server size={24} /> },
-      { name: "PostgreSQL", level: 75, icon: <Database size={24} /> },
-      { name: "MongoDB", level: 70, icon: <Database size={24} /> },
-      { name: "GraphQL", level: 65, icon: <Code size={24} /> },
-      { name: "REST APIs", level: 85, icon: <Globe size={24} /> },
+      { name: "Node.js", level: 50, icon: <Server size={24} /> },
+      { name: "Express", level: 50, icon: <Server size={24} /> },
+      { name: "PostgreSQL", level: 10, icon: <Database size={24} /> },
+      { name: "MongoDB", level: 20, icon: <Database size={24} /> },
+      { name: "GraphQL", level: 0, icon: <Code size={24} /> },
+      { name: "REST APIs", level: 90, icon: <Globe size={24} /> },
     ],
   },
   {

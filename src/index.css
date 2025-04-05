@@ -74,3 +74,9 @@
       @apply bg-background text-foreground;
     }
   }
+
+  @media (max-width: 390px) {
+    .mobile-menu-open{
+      overflow: hidden;
+    }
+  }

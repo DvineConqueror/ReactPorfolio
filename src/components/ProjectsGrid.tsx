@@ -4,13 +4,17 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Eye } from "lucide-react";
+import RConnect from "../assets/RConnect.jpg";
+import SMARTDTR from "../assets/SmartDTR.jpg";
+import Typeroo from "../assets/Typeroo.jpg";
+import LM from "../assets/LegendaryMotorsports.png";
 
 interface Project {
   id: string;
   title: string;
   description: string;
   category: string | string[];
-  image: string;
+  projectURL?: string;
   demoUrl?: string;
   githubUrl?: string;
 }
@@ -28,62 +32,39 @@ const ProjectsGrid = ({ projects = [] }: ProjectsGridProps) => {
       description:
         "An online platform designed to make Daily Time Record (DTR) management more efficient and accessible.",
       category: "Mobile",
-      image:
-        "https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80",
+      projectURL: SMARTDTR,
       demoUrl: "https://example.com",
       githubUrl: "https://github.com/DvineConqueror/SMARTDTR-remade",
     },
     {
       id: "2",
-      title: "RaceConnect",
+      title: "Race Connect",
       description:
         "A dedicated social media platform for motorsports enthusiasts.",
       category: ["Mobile", "Web Development"],
-      image:
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
+      projectURL: RConnect,
       demoUrl: "https://example.com",
       githubUrl: "https://github.com",
     },
     {
       id: "3",
-      title: "Portfolio Design System",
-      description: "A comprehensive design system with reusable components",
-      category: "Design",
-      image:
-        "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80",
+      title: "Legendary Motorsports",
+      description:
+        "Legendary motorsports is a wiki website that lets you browse information about cars and motorcycles",
+      category: "Web Development",
+      projectURL: LM,
       demoUrl: "https://example.com",
       githubUrl: "https://github.com",
     },
     {
       id: "4",
-      title: "Task Management Dashboard",
-      description: "A productivity tool for teams to manage projects and tasks",
-      category: "Web Development",
-      image:
-        "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80",
-      demoUrl: "https://example.com",
-      githubUrl: "https://github.com",
-    },
-    {
-      id: "5",
-      title: "Fitness Tracking App",
-      description: "A mobile application to track workouts and nutrition",
-      category: "Mobile",
-      image:
-        "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&q=80",
-      demoUrl: "https://example.com",
-      githubUrl: "https://github.com",
-    },
-    {
-      id: "6",
-      title: "Brand Identity Package",
-      description: "A complete brand identity design for a startup company",
+      title: "Typeroo",
+      description: "The word game typeroo converted into desktop app, using Java.",
       category: "Design",
-      image:
-        "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80",
+      projectURL: Typeroo,
       demoUrl: "https://example.com",
       githubUrl: "https://github.com",
-    },
+    }
   ];
 
   const allProjects = projects.length > 0 ? projects : defaultProjects;
@@ -165,7 +146,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       >
         <div className="relative overflow-hidden aspect-video">
           <img
-            src={project.image}
+            src={project.projectURL}
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
             style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
