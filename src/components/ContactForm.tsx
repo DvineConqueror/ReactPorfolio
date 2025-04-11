@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Send, Loader2 } from "lucide-react";
-
+import emailjs from '@emailjs/browser';
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -54,10 +54,18 @@ const ContactForm = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
 
-    // Simulate API call
     try {
-      // In a real application, you would send the form data to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await emailjs.send(
+        "service_1ip9261",
+        "template_x79ps46",
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        "v7zeLfsnIQuaN1w5H"
+      );
 
       toast({
         title: "Message sent!",
