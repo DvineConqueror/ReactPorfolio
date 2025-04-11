@@ -8,9 +8,7 @@ import emailjs from '@emailjs/browser';
 import { TempoDevtools } from "tempo-devtools";
 TempoDevtools.init();
 
-useEffect(() => {
-  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-}, []);
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const basename = import.meta.env.BASE_URL;
 

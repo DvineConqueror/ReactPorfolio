@@ -55,29 +55,36 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      await emailjs.send(
+      const result = await emailjs.send(
         "service_1ip9261",
         "template_x79ps46",
         {
-          from_name: data.name,
-          from_email: data.email,
+          name: data.name,
+          email: data.email,
           subject: data.subject,
           message: data.message,
+          time: new Date().toLocaleString(),
         },
         "v7zeLfsnIQuaN1w5H"
       );
 
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I will get back to you soon.",
-      });
-
-      form.reset();
+      if (result.status === 200) {
+        toast({
+          title: "Success!",
+          description: "Thank you for reaching out. I will get back to you soon.",
+          duration: 5000,
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
+      console.error('Error sending email:', error);
       toast({
-        title: "Something went wrong.",
+        title: "Error",
         description: "Your message could not be sent. Please try again later.",
         variant: "destructive",
+        duration: 5000,
       });
     } finally {
       setIsSubmitting(false);
