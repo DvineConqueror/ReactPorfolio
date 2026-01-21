@@ -13,6 +13,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Trust proxy (required for Vercel/proxies)
+app.set('trust proxy', 1);
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -47,6 +50,7 @@ transporter.verify((error, success) => {
 
 // API Routes
 app.post('/api/contact', contactLimiter, async (req, res) => {
+    console.log("Received contact form submission");
     const { name, email, subject, message } = req.body;
 
     if (!name || !email || !subject || !message) {
@@ -71,10 +75,12 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
     try {
         await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully");
         res.status(200).json({ message: 'Email sent successfully' });
     } catch (error) {
         console.error('Error sending email:', error);
-        res.status(500).json({ error: 'Failed to send email' });
+        // Return explicit error details to client for debugging (remove in strict prod if needed)
+        res.status(500).json({ error: 'Failed to send email', details: error.message });
     }
 });
 
