@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Send, Loader2 } from "lucide-react";
-import emailjs from '@emailjs/browser';
+
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -55,20 +55,15 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const result = await emailjs.send(
-        "service_1ip9261",
-        "template_x79ps46",
-        {
-          name: data.name,
-          email: data.email,
-          subject: data.subject,
-          message: data.message,
-          time: new Date().toLocaleString(),
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        "v7zeLfsnIQuaN1w5H"
-      );
+        body: JSON.stringify(data),
+      });
 
-      if (result.status === 200) {
+      if (response.ok) {
         toast({
           title: "Success!",
           description: "Thank you for reaching out. I will get back to you soon.",
