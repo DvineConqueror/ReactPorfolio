@@ -78,6 +78,13 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Export app for Vercel
+export default app;
+
+// Only start the server if running directly (local development)
+// In Vercel, this file is imported, so we don't want to listen()
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
+}
