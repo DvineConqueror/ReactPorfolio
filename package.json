@@ -16,7 +16,6 @@
     "server": "node server.js"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^3.6.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
@@ -45,6 +44,7 @@
     "@radix-ui/react-toast": "^1.1.5",
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.7",
+    "@remix-run/router": "^1.23.2",
     "@supabase/supabase-js": "^2.45.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -63,8 +63,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.5",
     "react-resizable-panels": "^2.0.19",
-    "react-router": "^6.23.1",
-    "react-router-dom": "^6.23.1",
+    "react-router": "^6.28.0",
+    "react-router-dom": "^6.30.3",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.1",
@@ -79,7 +79,6 @@
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.38",
     "tailwindcss": "3.4.1",
-    "tempo-devtools": "^2.0.99",
     "typescript": "^5.8.2",
     "vite": "^6.2.5"
   }
