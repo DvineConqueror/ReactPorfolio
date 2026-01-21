@@ -30,10 +30,15 @@ const contactLimiter = rateLimit({
 });
 
 // Verify SMTP Transport
+const port = parseInt(process.env.SMTP_PORT || '587');
+const isSecure = port === 465; // Force secure true only for 465, false for 587/25
+
+console.log(`Configuring SMTP: Host=${process.env.SMTP_HOST} Port=${port} Secure=${isSecure}`);
+
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+    port: port,
+    secure: isSecure,
     auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
