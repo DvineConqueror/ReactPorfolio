@@ -116,21 +116,21 @@ const defaultCategories: SkillCategory[] = [
   {
     name: "Frontend",
     skills: [
-      { name: "React", level: 20, icon: <Code size={24} /> },
-      { name: "TypeScript", level: 30, icon: <Code size={24} /> },
-      { name: "Tailwind CSS", level: 70, icon: <Palette size={24} /> },
-      { name: "Next.js", level: 10, icon: <Globe size={24} /> },
+      { name: "React", level: 60, icon: <Code size={24} /> },
+      { name: "TypeScript", level: 60, icon: <Code size={24} /> },
+      { name: "Tailwind CSS", level: 80, icon: <Palette size={24} /> },
+      { name: "Next.js", level: 50, icon: <Globe size={24} /> },
       { name: "HTML/CSS", level: 100, icon: <Layers size={24} /> },
-      { name: "JavaScript", level: 80, icon: <Code size={24} /> },
+      { name: "JavaScript", level: 90, icon: <Code size={24} /> },
     ],
   },
   {
     name: "Backend",
     skills: [
-      { name: "Node.js", level: 50, icon: <Server size={24} /> },
-      { name: "Express", level: 50, icon: <Server size={24} /> },
+      { name: "Node.js", level: 80, icon: <Server size={24} /> },
+      { name: "Express", level: 80, icon: <Server size={24} /> },
       { name: "PostgreSQL", level: 10, icon: <Database size={24} /> },
-      { name: "MongoDB", level: 20, icon: <Database size={24} /> },
+      { name: "MongoDB", level: 80, icon: <Database size={24} /> },
       { name: "GraphQL", level: 0, icon: <Code size={24} /> },
       { name: "REST APIs", level: 90, icon: <Globe size={24} /> },
     ],
@@ -138,12 +138,12 @@ const defaultCategories: SkillCategory[] = [
   {
     name: "Design",
     skills: [
-      { name: "Figma", level: 80, icon: <Figma size={24} /> },
-      { name: "UI/UX", level: 75, icon: <Palette size={24} /> },
-      { name: "Responsive Design", level: 90, icon: <Layers size={24} /> },
-      { name: "Wireframing", level: 85, icon: <Layers size={24} /> },
-      { name: "Prototyping", level: 78, icon: <Figma size={24} /> },
-      { name: "Design Systems", level: 72, icon: <Palette size={24} /> },
+      { name: "Figma", level: 90, icon: <Figma size={24} /> },
+      { name: "UI/UX", level: 85, icon: <Palette size={24} /> },
+      { name: "Responsive Design", level: 100, icon: <Layers size={24} /> },
+      { name: "Wireframing", level: 90, icon: <Layers size={24} /> },
+      { name: "Prototyping", level: 85, icon: <Figma size={24} /> },
+      { name: "Design Systems", level: 80, icon: <Palette size={24} /> },
     ],
   },
 ];
