@@ -71,7 +71,10 @@ const ContactForm = () => {
         });
         form.reset();
       } else {
-        throw new Error('Failed to send message');
+        // Parse error details from server
+        const errorData = await response.json();
+        console.error("Server Error Details:", errorData);
+        throw new Error(errorData.error || 'Failed to send message');
       }
     } catch (error) {
       console.error('Error sending email:', error);
