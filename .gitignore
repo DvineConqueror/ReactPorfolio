@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.wrangler/
 *.local
 
 # Editor directories and files
@@ -30,6 +31,16 @@ dist-ssr
 
 core
 
-.github/
+.github/*
+!.github/dependabot.yml
+!.github/workflows/
+!.github/workflows/**
 
 .env
+.dev.vars
+
+.impeccable
+.playwright-cli
+agent
+.agents
+.claude

@@ -1,15 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import { ReactLenis } from "lenis/react";
+import App from "./App";
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
-
-const basename = import.meta.env.BASE_URL;
+import "lenis/dist/lenis.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter basename={basename}>
+    <ReactLenis
+      root
+      options={{
+        autoRaf: true,
+        lerp: 0.075,
+        smoothWheel: true,
+        syncTouch: false,
+        anchors: false,
+        respectReducedMotion: true,
+      }}
+    >
       <App />
-    </BrowserRouter>
+    </ReactLenis>
   </React.StrictMode>,
 );
