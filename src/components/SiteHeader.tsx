@@ -1,43 +1,26 @@
-import { useEffect, useState, type MouseEvent } from "react";
-import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Modal } from "./Modal";
+import { ThemeToggle } from "./ThemeToggle";
+import type { Theme } from "../hooks/useTheme";
+import { portfolio } from "../content/portfolio";
 
-const sectionIds = ["home", "work", "about", "contact"] as const;
-type SectionId = (typeof sectionIds)[number];
-
-export function SiteHeader({ theme, onToggleTheme, onNavigate }: { theme: "dark" | "light"; onToggleTheme: () => void; onNavigate: (event: MouseEvent<HTMLAnchorElement>) => void }) {
-  const [activeSection, setActiveSection] = useState<SectionId>("home");
-  const nextTheme = theme === "dark" ? "light" : "dark";
-
+const sections = [["home", "Overview"], ["work", "Projects"], ["about", "About & skills"], ["certifications", "Certifications"], ["contact", "Contact"]] as const;
+export function SiteHeader({ theme, onThemeChange }: { theme: Theme; onThemeChange: (value: Theme) => void }) {
+  const [active, setActive] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    // External sync only: mirror the section crossing the reading line into the nav, then clean up.
-    const updateActiveSection = () => {
-      const readingLine = window.innerHeight * 0.35;
-      let nextSection: SectionId = "home";
-      for (const id of sectionIds) {
-        const section = document.getElementById(id);
-        if (section && section.getBoundingClientRect().top <= readingLine) nextSection = id;
-      }
-      setActiveSection(nextSection);
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
-    return () => {
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
-    };
+    // Section reading line and responsive menu state come from browser events; clean up subscriptions.
+    const update = () => { let current = "home"; for (const [id] of sections) { if ((document.getElementById(id)?.getBoundingClientRect().top ?? Infinity) <= innerHeight * .3) current = id; } setActive(current); };
+    const wide = matchMedia("(min-width: 1024px)");
+    const closeWhenWide = () => { if (wide.matches) setMenuOpen(false); };
+    update(); window.addEventListener("scroll", update, { passive: true }); window.addEventListener("resize", update); wide.addEventListener("change", closeWhenWide);
+    return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); wide.removeEventListener("change", closeWhenWide); };
   }, []);
-
-  return <header className="site-header" aria-label="Site navigation">
-    <nav aria-label="Primary navigation">
-      {sectionIds.map((id) => {
-        const label = id === "home" ? "Home" : id === "work" ? "Projects" : id === "about" ? "About" : "Contact";
-        return <a className={`header-nav-link ${activeSection === id ? "is-active" : ""}`} aria-current={activeSection === id ? "location" : undefined} href={`#${id}`} onClick={onNavigate} key={id}>{label}</a>;
-      })}
-    </nav>
-    <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={`Switch to ${nextTheme} theme`} aria-pressed={theme === "light"}>
-      {theme === "dark" ? <Sun /> : <Moon />}
-    </button>
-  </header>;
+  const navigation = (close = false) => <nav aria-label={close ? "Mobile navigation" : "Primary navigation"}>{sections.map(([id, label], index) => <a key={id} href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={() => { if (close) setMenuOpen(false); }}><span className="nav-number">0{index + 1}</span><span>{label}</span><ArrowUpRight className="nav-arrow" aria-hidden="true" /></a>)}</nav>;
+  const themeControl = <div className="theme-control"><ThemeToggle theme={theme} onChange={onThemeChange} /></div>;
+  return <>
+    <header className="site-header"><a className="identity" href="#home"><span className="identity-mark" aria-hidden="true">ha.</span><span>Henry Alicoben<span className="identity-caption">Engineer & product builder</span></span></a><div className="desktop-navigation">{navigation()}{themeControl}<div className="sidebar-links"><a href={portfolio.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight /></a><a href={portfolio.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a></div><span className="sidebar-location">Based in the Philippines</span></div><button className="icon-button mobile-menu-toggle" type="button" onClick={() => setMenuOpen(true)} aria-label="Open navigation" aria-expanded={menuOpen}><Menu /></button></header>
+    {menuOpen && <Modal titleId="menu-title" onClose={() => setMenuOpen(false)} className="menu-modal"><header className="modal-header"><h2 id="menu-title">Navigation</h2><button className="icon-button" autoFocus type="button" onClick={() => setMenuOpen(false)} aria-label="Close navigation"><X /></button></header>{navigation(true)}{themeControl}</Modal>}
+  </>;
 }

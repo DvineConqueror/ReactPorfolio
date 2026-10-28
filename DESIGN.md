@@ -1,0 +1,241 @@
+---
+name: Henry Alicoben — Bryl Portfolio
+description: Monochrome engineering portfolio with work-led editorial presentation.
+colors:
+  background: "#fff"
+  foreground: "#0a0a0a"
+  muted: "#626262"
+  subtle: "#fafafa"
+  fill: "#f5f5f5"
+  border: "#e9e9e9"
+  strong-border: "#d4d4d4"
+  dark-background: "#0c0c0f"
+  dark-foreground: "#f4f4f5"
+  dark-muted: "#a0a0a8"
+  dark-subtle: "#18181b"
+  dark-fill: "#1e1e22"
+  dark-border: "#2a2a30"
+  dark-strong-border: "#3a3a42"
+  contrast-muted: "#333"
+  contrast-border: "#888"
+  contrast-strong-border: "#555"
+  dark-contrast-muted: "#ddd"
+  dark-contrast-strong-border: "#aaa"
+typography:
+  display:
+    fontFamily: "Geist Pixel, Geist Mono, monospace"
+    fontSize: "clamp(2rem, 4.2vw, 3rem)"
+    fontWeight: 400
+    lineHeight: 1.08
+    letterSpacing: "-.025em"
+  headline:
+    fontFamily: "Geist Pixel, Geist Mono, monospace"
+    fontSize: "clamp(1.5rem, 3vw, 2rem)"
+    fontWeight: 400
+    lineHeight: 1.2
+    letterSpacing: "-.02em"
+  project-title:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "1.35rem"
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: "-.02em"
+  body:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "15px"
+    lineHeight: 1.6
+  summary:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: ".95rem"
+    lineHeight: 1.5
+  supporting-body:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: ".8rem"
+    lineHeight: 1.6
+  control:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: ".8rem"
+    fontWeight: 500
+  label:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: ".75rem"
+    lineHeight: 1.6
+  metadata:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: ".62rem"
+    lineHeight: 1.6
+    letterSpacing: ".03em"
+  caption:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: ".65rem"
+  chip:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: ".63rem"
+    lineHeight: 1.5
+  fine-print:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: ".7rem"
+    lineHeight: 1.6
+rounded:
+  field: "6px"
+  control: "8px"
+  container: "12px"
+  viewer: "16px"
+  pill: "999px"
+spacing:
+  small: ".5rem"
+  compact: ".75rem"
+  base: "1rem"
+  medium: "1.25rem"
+  large: "1.5rem"
+  heading-gap: "2rem"
+  row-gap: "2.5rem"
+  section: "3.5rem"
+components:
+  button-primary:
+    backgroundColor: "{colors.foreground}"
+    textColor: "{colors.background}"
+    typography: "{typography.control}"
+    rounded: "{rounded.control}"
+    padding: ".7rem 1rem"
+  button-secondary:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.foreground}"
+    typography: "{typography.control}"
+    rounded: "{rounded.control}"
+    padding: ".7rem 1rem"
+  field:
+    backgroundColor: "{colors.subtle}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.field}"
+    padding: ".8rem"
+  chip:
+    textColor: "{colors.muted}"
+    typography: "{typography.chip}"
+    rounded: "{rounded.pill}"
+    padding: ".2rem .55rem"
+---
+
+# Design System: Henry Alicoben — Bryl Portfolio
+
+## Overview
+
+**Creative North Star: “Quiet technical zine.”**
+
+Bryl minimal is the approved visual authority: monochrome surfaces, pixel display type, mono metadata, fine rules and restrained framing. The artifact leads and the interface recedes. The density is compact enough to introduce selected work in the first desktop viewport, with room around screenshots and readable project summaries.
+
+Original project screenshots and certificates retain their colors. The portrait starts grayscale and offers a color toggle. On hover-capable fine pointers, eight generated head/gaze directions follow nearby cursor position; the supplied face-covering emoji remains intact. A single static halftone field sits behind its lightly rotated frame. These assets supply visual character without inventing project claims.
+
+**Key Characteristics:**
+
+- Pixel headings and numbered sections; sans-serif reading text and mono metadata.
+- Black/white inversion for primary actions; neutral tonal surfaces for structure.
+- Contained project media, source-backed credentials and accessible in-site viewers.
+
+## Colors
+
+The normative palette above maps directly to the root CSS variables in `src/index.css`; it has no chromatic accent.
+
+### Primary
+
+Foreground ink defines primary text and inverted action backgrounds; background paper supplies their text. The dark theme reverses these roles using the corresponding dark tokens.
+
+### Neutral
+
+Muted supports descriptions and metadata. Subtle backs fields, media frames and the résumé card; fill handles hover and document-reader wells. Border separates sections and surfaces; strong-border outlines actionable controls and chips. Original media colors are preserved rather than remapped into the palette.
+
+Default theme follows the OS. Explicit light, dark and system choices persist. Increased contrast replaces muted and rule colors with the contrast tokens. Selection uses foreground/background inversion.
+
+**The Ink Action Rule.** Use neutral inversion for primary actions; keep the interface monochrome while preserving source media.
+
+## Typography
+
+**Display Font:** Geist Pixel Square, exposed as Geist Pixel, with Geist Mono and monospace fallbacks. The Square WOFF2 and its license live in `src/assets/fonts`.
+
+**Body Font:** Geist, with system-ui and sans-serif fallbacks; locally bundled through @fontsource at weights 400, 500 and 600.
+
+**Label/Mono Font:** Geist Mono 400, locally bundled through @fontsource. No article surface exists, so no long-form serif role is used.
+
+### Hierarchy
+
+Frontmatter records the reusable roles. The root is 15px, so rem values resolve against that base; the implementation uses observed sizes rather than a fabricated modular ratio.
+
+- Display uses the fluid display role, a 17ch maximum line length and a phone override (2.15rem below 768px). Identity initials use the same pixel face (2rem, becoming 3rem at 1024px).
+- Section headlines use the fluid headline role. Their muted section numbers are relative (0.7em), not independent headings. Keep the approved numbering.
+- Project titles use the project-title role. Certificate titles use 1.1rem/1.4; dialog headings use 1.3rem/1.2. Small subsection headings range from .9rem to 1.05rem.
+- Hero introduction uses .95rem/1.6, at most 48ch, becoming .88rem on phones. Project summary uses the summary role. Section descriptions use .86rem/1.6, at most 65ch.
+- Supporting paragraphs, disclosures and certificate descriptions recur at .8rem; project paragraphs use .82rem, becoming .87rem on phones alongside disclosures. Form fields use .87rem, with an explicit 16px phone override.
+- Labels and social links recur at .75rem; form notes and skill headings use .78rem. Navigation is .85rem, increasing to 1.5rem inside the mobile menu.
+- Mono metadata uses the metadata role in uppercase; certificate kinds share its size with .06em tracking. Preview captions use the caption role; dates use .67rem. Chips use the chip role. Phone project metadata and chips become .67rem and preview hints .7rem.
+- Mono navigation numbers and sidebar location use .6rem; footer uses .62rem/1.7. Fine print and project footer use .7rem; PDF toolbar uses mono .7rem, becoming .65rem on phones. Text actions use .76rem.
+
+**The Pinned Type Rule.** Preserve the approved Geist pairing, pixel section headings and mono metadata; generic font or typography preferences do not override this direction.
+
+## Layout
+
+The desktop breakpoint (1024px) introduces a fixed sidebar (14rem wide) and main surface with horizontal gutters (`clamp(2rem,5vw,5rem)`) and maximum outer width (`calc(56rem + 10rem)`). At 1500px the main surface centers with a 7rem translation to account for the sidebar. Smaller viewports use a sticky top bar, main maximum width (60rem), and gutters (1.5rem).
+
+Project rows split image/copy (1.1fr/1fr), separated by a 1.75rem gap; project-to-project rhythm is 2.5rem. Media remains sticky on larger screens. Certificates form two columns, approach items three, and contact divides .8fr/1.2fr. Section blocks use a top hairline and 3.5rem vertical padding.
+
+Below 768px, gutters become 1rem, projects/certificates/approach/contact stack, media becomes static and sections use 2.75rem padding. The hero retains a compact portrait column (6.5rem), switching to one column below 381px. Name/email fields also stack at that narrow breakpoint. The menu occupies the viewport; the phone résumé reader uses the full viewport and safe-area padding.
+
+## Elevation & Depth
+
+Hairlines and tonal layering carry most structure. The shared light-theme media shadow is `0 8px 22px -14px #0004`; explicit dark theme sets it to none. On hover-capable devices, project previews rise 2px with `0 18px 36px -20px #0006`. Dialogs use `0 40px 90px -20px #0006`, a translucent black backdrop (`#0007`) and an 8px blur. White PDF pages retain their document appearance with `0 4px 12px #0002`.
+
+The sticky mobile header uses a 92% background mix and 16px blur. Reduced transparency removes blurs, restores solid header surfaces and strengthens the dialog backdrop (`#000b`). Increased contrast also makes the header opaque.
+
+## Shapes
+
+Soft rectangular frames organize evidence: fields (6px), controls and inset images (8px), portrait/certificate/résumé frames (12px), and project/dialog frames (16px). Stack chips alone use pill corners (999px). Borders are 1px. The portrait frame rotates 3 degrees, with a 4:5 cover-fit portrait; project media and certificates use contain-fit images so their contents remain visible.
+
+## Components
+
+### Buttons and links
+
+Controls are compact and quiet: button padding (.7rem 1rem), minimum height (44px), strong border and control radius. Icon controls are 44px square. Primary buttons invert ink/paper and hover at .86 opacity; secondary buttons use the fill surface on hover. Disabled buttons use .5 opacity and a not-allowed cursor. Focus uses a 2px ink outline with 4px offset. Press feedback scales to .97 over 100ms; link arrows travel 2px diagonally over 200ms.
+
+### Chips and evidence frames
+
+Stack chips use the strong border, muted mono labels and compact pill padding. Project previews show a gallery hint/count below contained images (4:3, switching to 16:10 on phones). Certificate previews retain their complete source ratio (792:612) and open full previews with original downloads. Project implementation details use native disclosure rather than another card layer.
+
+### Inputs and fields
+
+Fields use subtle surfaces, strong borders, field radius and .8rem padding. Name/email share a row until the narrow breakpoint. Labels sit above their fields; invalid fields use ink borders and inline text. Error communication stays monochrome with explicit text. Keep the 16px phone input size and visible focus treatment.
+
+### Navigation
+
+Muted links become ink on hover/current state; a directional arrow appears alongside the current or hovered destination. Desktop uses the fixed sidebar; smaller screens use a full-screen native dialog. A single 44px icon cycles system → light → dark. Monitor, sun and moon show the current choice; the accessible name and tooltip describe the next action. The same icon appears inside mobile navigation. Theme persistence and system preference remain unchanged.
+
+### Viewers
+
+Native dialogs provide focus containment, Escape dismissal, background inertness and restored focus. Project galleries keep controls, captions and thumbnails visible. Résumé access begins with Turnstile; successful verification reveals the selectable, zoomable PDF reader. Certificates remain public. Supplied document contents remain unchanged.
+
+### Motion and preferences
+
+Dialog entry takes 200ms with opacity and scale (.97 to 1); the shared ease is `cubic-bezier(.16,1,.3,1)`. Theme surfaces transition over 500ms. Portrait grayscale toggles over 350ms. Lenis smooths wheel/programmatic navigation while touch remains native. Reduced motion removes smoothing, transitions, animation and decorative hover movement. Only the loading indicator loops; the hero halftone stays static.
+
+Portrait tracking uses one requestAnimationFrame per pointer update, a 260px proximity radius and a center dead zone. A single aligned 3×3 atlas supplies eight gaze directions plus neutral; the frame stays anchored. Pointer departure, scrolling, blur and hidden document reset the gaze. Touch/coarse pointers and reduced motion keep the original static photo and do not request the atlas. An image-load failure also preserves the original. Generated source, optimized WebP and exact generation prompt live in `src/assets/portrait`.
+
+## Do's and Don'ts
+
+### Do:
+
+- **Do** preserve pixel display type, mono metadata, numbered headings and neutral inversion.
+- **Do** contain screenshots and document previews, retaining original source colors and contents.
+- **Do** keep 44px action targets, visible focus, keyboard-operable viewers and preference-aware presentation.
+- **Do** use the observed small text roles intentionally; extend existing roles before inventing a new scale.
+
+### Don't:
+
+- **Don't** replace the pinned Bryl typography with generic font recommendations.
+- **Don't** add a chromatic interface accent or looping decorative backgrounds.
+- **Don't** crop project evidence, rewrite supplied documents or introduce unsupported claims or metrics.
+
+## Design Direction Contract
+THESIS: Quiet technical zine; the artifact leads and interface recedes.
+OWN-WORLD: Bryl monochrome, pixel display, mono metadata, hairlines, generous rhythm.
+STORY: Introduction → two selected projects → working approach and skills → source-backed credentials → contact and protected résumé.
+FIRST VIEWPORT: Identity/sidebar, concise introduction, portrait/halftone and beginning of selected work on desktop; compact header/introduction on mobile.
+FORM: Sidebar-to-overlay navigation, split project rows, contain-fit media, accessible modal viewers.
+SIGNATURE INTERACTION: Project preview opens an image-focused gallery; résumé transitions from human verification to a selectable, zoomable document without leaving the site.

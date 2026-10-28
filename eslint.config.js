@@ -5,7 +5,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist", ".wrangler/**", ".playwright-cli", "output", ".agents/**", "agent/**", "eslint.config.js", "vite.config.ts"] },
+  { ignores: ["dist", ".wrangler/**", ".playwright-cli", "output", ".agents/**", ".claude/**", "agent/**", "scripts/verify-resume-build.mjs", "eslint.config.js", "vite.config.ts"] },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   {

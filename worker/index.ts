@@ -1,11 +1,15 @@
 import { contactPayloadSchema } from "../src/domain/contact";
+import resumePdf from "./private/resume.bin";
+import { serveResume, type ResumeEnv } from "./resume";
 
-interface Env { ASSETS: Fetcher; CONTACT_RATE_LIMITER: RateLimit; TURNSTILE_SECRET_KEY: string; RESEND_API_KEY: string; CONTACT_FROM_EMAIL: string; CONTACT_TO_EMAIL: string; ALLOWED_ORIGIN?: string }
+interface Env extends ResumeEnv { ASSETS: Fetcher; CONTACT_RATE_LIMITER: RateLimit; RESEND_API_KEY: string; CONTACT_FROM_EMAIL: string; CONTACT_TO_EMAIL: string }
 const MAX_BODY_BYTES = 16_384;
 
 export default {
   async fetch(request, env): Promise<Response> {
     const url = new URL(request.url);
+    if (/^\/assets\/Alicoben-Resume(?:-[^/]+)?\.pdf$/i.test(url.pathname)) return new Response("Not found", { status: 404, headers: { "Cache-Control": "no-store" } });
+    if (url.pathname === "/api/resume") return serveResume(request, env, resumePdf);
     if (url.pathname !== "/api/contact") return env.ASSETS.fetch(request);
     if (request.method !== "POST") return json({ message: "Method not allowed." }, 405, { Allow: "POST" });
     const origin = request.headers.get("Origin");
