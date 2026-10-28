@@ -71,3 +71,12 @@ output/playwright/aws-certificate-reference.jpg
 output/dependency-audit.json
 GATES-portrait.md
 GATES-bryl.md
+output/worker-audit-fix/README.md
+output/worker-audit-fix/index.js.map
+output/worker-audit-fix/index.js
+output/worker-audit-fix/1550f4a2fac532113170ecdfa01fad05f3735b4b-resume.bin
+output/playwright/contact-upgrade-check.js
+output/outdated-before-fix.json
+output/dependency-refresh/package.json
+output/audit-before-fix.json
+GATES-ci-audit.md
