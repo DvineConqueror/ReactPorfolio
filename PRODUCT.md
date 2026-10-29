@@ -31,3 +31,11 @@ Existing project screenshots and portrait in src/assets, with supplied images fo
 Keyboard-operable navigation and overlays; visible focus, readable contrast, text selection in PDF, reduced motion, reduced transparency, high contrast and responsive text. Turnstile filters bots; it does not verify identity or prevent copying after access.
 
 Portrait follow-up: supplied Resume-img.png replaces the emoji portrait. A generated 36-pose sheet retains existing smooth cursor tracking; the lossless original is the static fallback. Larger responsive portrait and transparent icon-only color control retain a 44px target and visible keyboard focus. Generation source and exact prompt are retained in src/assets/portrait/real-*.
+
+## Portfolio review improvements
+
+Featured projects now explain personal contributions, an engineering decision and available evidence. Henry confirmed ownership: BayanTrack web/mobile/backend/blockchain; AnchorWatch web/mobile; the entire AIO Converter Windows app; the entire SmartGPOS (GPOS) web app. This clarification supersedes earlier résumé-derived ownership wording; AnchorWatch backend/LLM integration is not claimed as his contribution. Repository and screenshot evidence describes the products. BayanTrack leads with its duplicate-report workflow; onboarding and sign-in images are labelled accurately. Only AIO's confirmed release-candidate status is shown. No invented outcomes, project maturity labels or education dates.
+
+The hero opens the same protected résumé viewer. Project dialogs have shareable #project-ID URLs with reload/back/forward support and copy-link feedback. About identifies Henry as a fourth-year IT student at PHINMA – University of Pangasinan, directly confirmed by Henry, seeking an internship or entry-level role per the supplied résumé. Full skills and credential images use disclosures; all underlying content stays available.
+
+Contact failures preserve input and offer direct email recovery. Browser-visible errors are vetted messages rather than raw server diagnostics. Verification uses compact sizing below 300px container width, including the résumé gate. Actual human verification and email delivery still need production checks.

@@ -259,3 +259,11 @@ Seasonal mode is an explicit exception to neutral-only styling: dim parchment/pl
 The GitHub section reuses pixel statistic numerals, mono metadata, hairlines and contained surfaces. Heatmap levels follow the selected seasonal accent; the base palette uses muted green. Use a scrollable calendar on small screens and a disclosure with daily count table for keyboard/touch access. All totals and streaks name their date range. Data loading/failure states keep the profile link available.
 
 Christmas character scene: original pixel snowman, reindeer, Santa, two elves and presents form a small winter village. Scale the Christmas scene separately on phones to keep the complete cast visible. Top mistletoe occupies the outer corners below the mobile header. Dark Christmas has midnight navy surfaces and broad green/violet aurora curtains behind content; a 28-second opacity/transform cycle includes a dark interval. Pause/reduced-motion states use a static faint curtain, while contrast/transparency preferences remove it.
+
+## Portfolio review polish
+
+On phones, give the greeting and headline full width, then pair the introduction with the portrait. Below 380px, stack the portrait. Keep work, résumé and email actions early. Supporting project text is larger; full technical skills and credential images use native disclosures to shorten the initial reading path.
+
+Featured rows identify “My part”; dialogs separate the problem, contribution, engineering decision and inspectable evidence. Preserve original screenshots with contain fit. Project URLs and announced copy-link status make individual work shareable.
+
+Hover feedback uses 200ms and existing easing, with moving image/link effects limited to fine pointers. Keyboard section activation and device reduced motion use immediate navigation. Existing portrait, seasonal effects and theme transitions retain their own controls. Motion audit: plans/portfolio-motion.md.

@@ -10,6 +10,7 @@ export function useSectionNavigation() {
     let frame = 0;
     let disposed = false;
     const go = (hash: string, immediate = false, focus = false) => {
+      immediate ||= matchMedia("(prefers-reduced-motion: reduce)").matches;
       let id: string;
       try { id = decodeURIComponent(hash.slice(1)); } catch { return; }
       const target = document.getElementById(id || "home");
@@ -30,7 +31,7 @@ export function useSectionNavigation() {
       if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search || !url.hash || !document.getElementById(url.hash.slice(1))) return;
       event.preventDefault();
       if (location.hash !== url.hash) history.pushState(null, "", url.hash);
-      go(url.hash, false, true);
+      go(url.hash, event.detail === 0, true);
     };
     const restore = () => go(location.hash, true);
     document.addEventListener("click", click);

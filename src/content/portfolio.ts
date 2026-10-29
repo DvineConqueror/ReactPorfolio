@@ -22,6 +22,9 @@ export type Project = {
   kicker: string;
   summary: string;
   contribution: string;
+  decision?: string;
+  evidence?: string;
+  status?: string;
   image: string | null;
   imageAlt: string;
   gallery: GalleryImage[];
@@ -40,6 +43,8 @@ export const portfolio = {
   github: "https://github.com/DvineConqueror",
   linkedin: "https://ph.linkedin.com/in/henrydominicalicoben",
   intro: "I turn operational problems into clear, secure web products—from interface systems to the APIs behind them.",
+  bio: "I’m a fourth-year IT student at PHINMA – University of Pangasinan, based in the Philippines. I build web, mobile and desktop software for civic reporting, financial monitoring and everyday tools.",
+  availability: "Seeking an internship or entry-level development role.",
   stack: ["React/Next.js", "TypeScript", "JavaScript", "Node.js", "REST APIs", "TailwindCSS", "Django", "MongoDB", "Figma"],
   projects: [
     {
@@ -49,14 +54,16 @@ export const portfolio = {
       title: "BayanTrack",
       kicker: "Incident reporting system",
       summary: "Verified incident reporting with live dispatch tracking for LGUs.",
-      contribution: "Web, mobile, AI, and blockchain tools for citizens and response teams.",
-      image: bayanTrackWeb,
-      imageAlt: "BayanTrack web dashboard",
+      contribution: "Built the web portal, Flutter mobile app, Django backend and blockchain incident audit trails.",
+      decision: "Kept citizen reporting and staff coordination in separate mobile and web interfaces, connected through the Django API. This gives each audience its own workflow while sharing incident data.",
+      evidence: "The quick-report screenshot shows nearby duplicate reports before submission. The gallery also includes mobile onboarding and sign-in, plus the staff portal sign-in screen.",
+      image: bayanTrackMobile3,
+      imageAlt: "BayanTrack quick report checking nearby duplicate incidents before submission",
       gallery: [
-        { src: bayanTrackWeb, alt: "BayanTrack web dashboard" },
-        { src: bayanTrackMobile1, alt: "BayanTrack mobile incident reporting view" },
-        { src: bayanTrackMobile2, alt: "BayanTrack mobile map view" },
-        { src: bayanTrackMobile3, alt: "BayanTrack mobile response view" },
+        { src: bayanTrackMobile3, alt: "BayanTrack quick report: nearby duplicate incidents and review or submit actions" },
+        { src: bayanTrackWeb, alt: "BayanTrack staff portal sign-in screen" },
+        { src: bayanTrackMobile1, alt: "BayanTrack mobile onboarding screen" },
+        { src: bayanTrackMobile2, alt: "BayanTrack mobile welcome and sign-in screen" },
       ],
       period: "Jan. 2026",
       organization: "PHINMA University of Pangasinan",
@@ -76,7 +83,9 @@ export const portfolio = {
       title: "AnchorWatch",
       kicker: "FinTech platform",
       summary: "Stablecoin monitoring with alerts, analytics, and trend tracking.",
-      contribution: "React product surfaces with an AI assistant for financial questions.",
+      contribution: "Built the web and mobile applications for stablecoin monitoring, alerts and historical trends.",
+      decision: "Combined market dashboards with natural-language summaries so users can inspect trends visually and ask questions about the same financial data.",
+      evidence: "Desktop and mobile dashboard screenshots show the monitoring interface. The linked frontend repository provides the implementation to review.",
       image: anchorWatch,
       imageAlt: "AnchorWatch dashboard showing stablecoin market monitoring",
       gallery: [
@@ -100,7 +109,10 @@ export const portfolio = {
       title: "AIO Converter",
       kicker: "Windows desktop utility",
       summary: "Local file conversion, with optional online video and audio downloads.",
-      contribution: "Developer of the desktop conversion and download workspaces.",
+      contribution: "Built the entire Windows application, from conversion and download workspaces to local engine integration and queued jobs.",
+      status: "Release candidate",
+      decision: "Local conversions run through desktop engines and a serial job queue. Optional link downloads use a separate workspace and require an internet connection.",
+      evidence: "Conversion and download screenshots show the two workspaces. Source includes the queue and desktop bridge; no public installer is offered here.",
       image: aioConvert,
       imageAlt: "AIO Converter desktop file-conversion workspace",
       gallery: [
@@ -126,7 +138,9 @@ export const portfolio = {
       title: "GPOS",
       kicker: "Grocery point of sale",
       summary: "Product browsing, checkout, inventory, and sales reporting for a grocery store.",
-      contribution: "Developer of the grocery point-of-sale system.",
+      contribution: "Built the entire SmartGPOS (GPOS) web application, including the frontend and backend for the grocery point-of-sale system.",
+      decision: "The interface keeps the product catalog and checkout cart together, with search, categories and visible stock for the cashier’s purchase flow.",
+      evidence: "The supplied screenshot shows product search, stock levels and a checkout cart. The source repository documents inventory, receipts and sales reporting.",
       image: gpos,
       imageAlt: "GPOS grocery product catalog and checkout cart",
       gallery: [{ src: gpos, alt: "GPOS: grocery product search, stock levels, and checkout cart" }],

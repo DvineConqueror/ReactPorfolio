@@ -20,14 +20,27 @@ export function Turnstile({ siteKey, onToken, action = "contact", onError }: { s
     // Cloudflare SDK is external; render only after load and dispose its widget/subscriptions on unmount.
     let cancelled = false;
     let id: string | undefined;
+    let observer: ResizeObserver | undefined;
     void loadSdk().then(() => {
       if (cancelled || !ref.current || !window.turnstile) return;
-      id = window.turnstile.render(ref.current, { sitekey: siteKey, action, theme: "auto", size: "flexible", callback: onToken,
-        "expired-callback": () => { onToken(""); onError?.("Verification expired. Complete the challenge again."); },
-        "error-callback": () => { onToken(""); onError?.("Verification failed to load. Retry or contact me by email."); },
-      });
+      let size: "compact" | "flexible" | undefined;
+      const render = () => {
+        if (!ref.current || !window.turnstile) return;
+        const nextSize = ref.current.clientWidth < 300 ? "compact" : "flexible";
+        if (size === nextSize) return;
+        size = nextSize;
+        if (id) window.turnstile.remove(id);
+        onToken("");
+        id = window.turnstile.render(ref.current, { sitekey: siteKey, action, theme: "auto", size, callback: onToken,
+          "expired-callback": () => { onToken(""); onError?.("Verification expired. Complete the challenge again."); },
+          "error-callback": () => { onToken(""); onError?.("Verification failed to load. Retry or contact me by email."); },
+        });
+      };
+      observer = new ResizeObserver(render);
+      observer.observe(ref.current);
+      render();
     }).catch(() => { if (!cancelled) onError?.("Verification could not load. Check your connection and retry."); });
-    return () => { cancelled = true; if (id) window.turnstile?.remove(id); };
+    return () => { cancelled = true; observer?.disconnect(); if (id) window.turnstile?.remove(id); };
   }, [siteKey, onToken, action, onError]);
   return <div ref={ref} className="turnstile" aria-label="Bot verification" />;
 }
