@@ -1,33 +1,51 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Contrast, Palette } from "lucide-react";
 import original from "../assets/MyImage.png";
-import atlas from "../assets/portrait/directional-atlas.webp";
-import { portraitDirection, type PortraitDirection } from "../domain/portrait";
-
-const positions: Record<PortraitDirection, [number, number]> = {
-  "up-left": [0, 0], up: [1, 0], "up-right": [2, 0], left: [0, 1], center: [1, 1], right: [2, 1], "down-left": [0, 2], down: [1, 2], "down-right": [2, 2],
-};
+import atlas from "../assets/portrait/smooth-atlas.webp";
+import { advancePortraitPose, PORTRAIT_CENTER, portraitTarget, type PortraitPose } from "../domain/portrait";
 
 export function InteractivePortrait() {
   const frame = useRef<HTMLDivElement>(null);
   const [color, setColor] = useState(false);
-  const [direction, setDirection] = useState<PortraitDirection>("center");
+  const [pose, setPose] = useState<PortraitPose>({ column: 3, row: 3 });
   const [tracking, setTracking] = useState(false);
   const [atlasReady, setAtlasReady] = useState(false);
   const [atlasFailed, setAtlasFailed] = useState(false);
   useEffect(() => {
-    // Browser pointer/preferences own this interaction; remove listeners and pending frame on cleanup.
+    // Pointer and motion preferences are external; dispose listeners and the settling frame loop on cleanup.
     const media = matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
     let animation = 0;
-    const reset = () => { cancelAnimationFrame(animation); setDirection("center"); };
-    const preference = () => { setTracking(media.matches); reset(); };
+    let lastTime = 0;
+    let current = { column: PORTRAIT_CENTER, row: PORTRAIT_CENTER };
+    let target = { ...current };
+    const animate = (time: number) => {
+      animation = 0;
+      current = advancePortraitPose(current, target, lastTime ? time - lastTime : 16);
+      lastTime = time;
+      setPose((previous) => {
+        // Small overlap between adjacent frames prevents jitter at an angle boundary.
+        const column = Math.abs(current.column - previous.column) < .6 ? previous.column : Math.round(current.column);
+        const row = Math.abs(current.row - previous.row) < .6 ? previous.row : Math.round(current.row);
+        return previous.column === column && previous.row === row ? previous : { column, row };
+      });
+      if (current.column !== target.column || current.row !== target.row) animation = requestAnimationFrame(animate);
+      else lastTime = 0;
+    };
+    const aim = (next: PortraitPose) => {
+      target = next;
+      if (!animation) animation = requestAnimationFrame(animate);
+    };
+    const reset = () => aim({ column: PORTRAIT_CENTER, row: PORTRAIT_CENTER });
+    const preference = () => {
+      cancelAnimationFrame(animation); animation = 0; lastTime = 0;
+      current = { column: PORTRAIT_CENTER, row: PORTRAIT_CENTER }; target = { ...current };
+      setPose({ column: 3, row: 3 }); setTracking(media.matches);
+    };
     const move = (event: PointerEvent) => {
       if (!media.matches || event.pointerType === "touch") return;
-      cancelAnimationFrame(animation);
-      animation = requestAnimationFrame(() => {
-        const rect = frame.current?.getBoundingClientRect();
-        setDirection(rect && !document.hidden && !document.querySelector("dialog[open]") ? portraitDirection(event.clientX, event.clientY, rect) : "center");
-      });
+      const rect = frame.current?.getBoundingClientRect();
+      if (rect && !document.hidden && !document.querySelector("dialog[open]")) aim(portraitTarget(event.clientX, event.clientY, rect));
+      else reset();
     };
     const leave = (event: PointerEvent) => { if (!event.relatedTarget) reset(); };
     preference();
@@ -39,12 +57,14 @@ export function InteractivePortrait() {
     document.addEventListener("visibilitychange", reset);
     return () => { cancelAnimationFrame(animation); media.removeEventListener("change", preference); window.removeEventListener("pointermove", move); window.removeEventListener("pointerout", leave); window.removeEventListener("blur", reset); window.removeEventListener("scroll", reset); document.removeEventListener("visibilitychange", reset); };
   }, []);
-  const [column, row] = positions[direction];
   const showAtlas = tracking && atlasReady && !atlasFailed;
-  return <div ref={frame} className={`hero-portrait${color ? " is-color" : ""}`} data-direction={showAtlas ? direction : "center"}>
-    <div className="portrait-viewport" style={{ "--pose-column": column, "--pose-row": row } as CSSProperties}>
+  const horizontal = pose.column < 2 ? "left" : pose.column > 3 ? "right" : "";
+  const vertical = pose.row < 2 ? "up" : pose.row > 3 ? "down" : "";
+  const direction = [vertical, horizontal].filter(Boolean).join("-") || "center";
+  return <div ref={frame} className={`hero-portrait${color ? " is-color" : ""}`} data-direction={showAtlas ? direction : "center"} data-column={pose.column} data-row={pose.row}>
+    <div className="portrait-viewport">
       <img className={`portrait-original${showAtlas ? " is-hidden" : ""}`} src={original} alt="Henry Alicoben portrait" width="400" height="400" />
-      {tracking && !atlasFailed && <img className={`portrait-atlas${showAtlas ? " is-ready" : ""}`} src={atlas} alt="" aria-hidden="true" onLoad={() => setAtlasReady(true)} onError={() => setAtlasFailed(true)} width="1254" height="1254" />}
+      {tracking && !atlasFailed && <img className={`portrait-atlas${showAtlas ? " is-active" : ""}`} style={{ "--pose-column": pose.column, "--pose-row": pose.row } as CSSProperties} src={atlas} alt="" aria-hidden="true" onLoad={() => setAtlasReady(true)} onError={() => setAtlasFailed(true)} width="1254" height="1254" />}
     </div>
     <button className="icon-button portrait-toggle" type="button" onClick={() => setColor((value) => !value)} aria-pressed={color} aria-label={color ? "Show portrait in black and white" : "Show portrait in color"}>{color ? <Contrast aria-hidden="true" /> : <Palette aria-hidden="true" />}</button>
   </div>;

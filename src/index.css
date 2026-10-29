@@ -41,8 +41,8 @@ section[tabindex="-1"]:focus, main[tabindex="-1"]:focus { outline: none; }
 .hero-portrait.is-color .portrait-viewport { filter: none; }
 .portrait-viewport .portrait-original { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .portrait-original.is-hidden { opacity: 0; }
-.portrait-viewport .portrait-atlas { position: absolute; max-width: none; width: 375%; height: 300%; left: calc(-12.5% - var(--pose-column) * 125%); top: calc(var(--pose-row) * -100%); opacity: 0; pointer-events: none; }
-.portrait-atlas.is-ready { opacity: 1; }
+.portrait-viewport .portrait-atlas { position: absolute; max-width: none; width: 750%; height: 600%; left: calc(-12.5% - var(--pose-column) * 125%); top: calc(var(--pose-row) * -100%); opacity: 0; pointer-events: none; }
+.portrait-atlas.is-active { opacity: 1; }
 .portrait-toggle { position: absolute; bottom: .7rem; right: .7rem; background: var(--bg) !important; }
 .button, .icon-button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 44px; padding: .7rem 1rem; border: 1px solid var(--strong-line); border-radius: 8px; background: var(--bg); color: var(--ink); text-decoration: none; font-size: .8rem; font-weight: 500; transition: background-color 200ms, color 200ms, transform 100ms; }
 .button:hover, .icon-button:hover { background: var(--fill); }

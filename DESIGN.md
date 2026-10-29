@@ -124,7 +124,7 @@ components:
 
 Bryl minimal is the approved visual authority: monochrome surfaces, pixel display type, mono metadata, fine rules and restrained framing. The artifact leads and the interface recedes. The density is compact enough to introduce selected work in the first desktop viewport, with room around screenshots and readable project summaries.
 
-Original project screenshots and certificates retain their colors. The portrait starts grayscale and offers a color toggle. On hover-capable fine pointers, eight generated head/gaze directions follow nearby cursor position; the supplied face-covering emoji remains intact. A single static halftone field sits behind its lightly rotated frame. These assets supply visual character without inventing project claims.
+Original project screenshots and certificates retain their colors. The portrait starts grayscale and offers a color toggle. On hover-capable fine pointers, a dense generated head-pose sheet follows nearby cursor position through intermediate angles; the supplied face-covering emoji remains intact. A single static halftone field sits behind its lightly rotated frame. The favicon is a matching monochrome pixel “ha.” monogram.
 
 **Key Characteristics:**
 
@@ -215,7 +215,7 @@ Native dialogs provide focus containment, Escape dismissal, background inertness
 
 Dialog entry takes 200ms with opacity and scale (.97 to 1); the shared ease is `cubic-bezier(.16,1,.3,1)`. Theme surfaces transition over 500ms. Portrait grayscale toggles over 350ms. Lenis smooths wheel/programmatic navigation while touch remains native. Reduced motion removes smoothing, transitions, animation and decorative hover movement. Only the loading indicator loops; the hero halftone stays static.
 
-Portrait tracking uses one requestAnimationFrame per pointer update, a 260px proximity radius and a center dead zone. A single aligned 3×3 atlas supplies eight gaze directions plus neutral; the frame stays anchored. Pointer departure, scrolling, blur and hidden document reset the gaze. Touch/coarse pointers and reduced motion keep the original static photo and do not request the atlas. An image-load failure also preserves the original. Generated source, optimized WebP and exact generation prompt live in `src/assets/portrait`.
+Portrait tracking maps pointer position continuously into a 6×6 atlas of 36 generated poses. A time-based 110ms damping response carries the current head angle toward its target, including through neutral on reversals; elapsed time is capped to avoid a jump after a stalled frame. Small frame-boundary overlap prevents jitter. Only one fully opaque atlas image is displayed: no photo crossfades or animated sprite-coordinate sliding. One requestAnimationFrame loop runs only while the head is settling, and the portrait frame stays anchored. The 260px nearby radius, color toggle, pointer-departure/scroll/blur resets and static original on touch/coarse pointers, reduced motion or loading failure remain. The shipped source is `src/assets/portrait/smooth-atlas.webp`; its generated PNG and exact prompt are retained alongside it. The new favicon URL includes a version suffix so browsers fetch the updated design.
 
 ## Do's and Don'ts
 

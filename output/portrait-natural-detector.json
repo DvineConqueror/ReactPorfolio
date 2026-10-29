@@ -1,0 +1,303 @@
+[
+  {
+    "antipattern": "overused-font",
+    "name": "Overused font",
+    "description": "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, and Space Grotesk are used on so many sites they no longer feel distinctive. Each new wave of AI-generated UIs converges on the same handful of faces. Choose a face that gives your interface personality.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 1,
+    "snippet": "font-family: \"Geist"
+  },
+  {
+    "antipattern": "overused-font",
+    "name": "Overused font",
+    "description": "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, and Space Grotesk are used on so many sites they no longer feel distinctive. Each new wave of AI-generated UIs converges on the same handful of faces. Choose a face that gives your interface personality.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 7,
+    "snippet": "font-family: \"Geist"
+  },
+  {
+    "antipattern": "overused-font",
+    "name": "Overused font",
+    "description": "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, and Space Grotesk are used on so many sites they no longer feel distinctive. Each new wave of AI-generated UIs converges on the same handful of faces. Choose a face that gives your interface personality.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 28,
+    "snippet": "font-family: \"Geist"
+  },
+  {
+    "antipattern": "overused-font",
+    "name": "Overused font",
+    "description": "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, and Space Grotesk are used on so many sites they no longer feel distinctive. Each new wave of AI-generated UIs converges on the same handful of faces. Choose a face that gives your interface personality.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 35,
+    "snippet": "font-family: \"Geist"
+  },
+  {
+    "antipattern": "overused-font",
+    "name": "Overused font",
+    "description": "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, and Space Grotesk are used on so many sites they no longer feel distinctive. Each new wave of AI-generated UIs converges on the same handful of faces. Choose a face that gives your interface personality.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 57,
+    "snippet": "font-family: \"Geist"
+  },
+  {
+    "antipattern": "overused-font",
+    "name": "Overused font",
+    "description": "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, and Space Grotesk are used on so many sites they no longer feel distinctive. Each new wave of AI-generated UIs converges on the same handful of faces. Choose a face that gives your interface personality.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 66,
+    "snippet": "font-family: \"Geist Mono"
+  },
+  {
+    "antipattern": "overused-font",
+    "name": "Overused font",
+    "description": "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, and Space Grotesk are used on so many sites they no longer feel distinctive. Each new wave of AI-generated UIs converges on the same handful of faces. Choose a face that gives your interface personality.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 73,
+    "snippet": "font-family: \"Geist Mono"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 27,
+    "snippet": "font-size: .9rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".9rem"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 33,
+    "snippet": "Undocumented color #000 is outside DESIGN.md colors",
+    "ignoreValue": "#000"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 34,
+    "snippet": "font-size: .9rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".9rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 59,
+    "snippet": "font-size: .86rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".86rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 87,
+    "snippet": "font-size: 1rem is off the DESIGN.md type ramp",
+    "ignoreValue": "1rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 90,
+    "snippet": "font-size: .9rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".9rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 103,
+    "snippet": "font-size: 1.1rem is off the DESIGN.md type ramp",
+    "ignoreValue": "1.1rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 111,
+    "snippet": "font-size: 1.05rem is off the DESIGN.md type ramp",
+    "ignoreValue": "1.05rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 118,
+    "snippet": "font-size: .87rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".87rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 129,
+    "snippet": "font-size: .85rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".85rem"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 139,
+    "snippet": "Undocumented color #0007 is outside DESIGN.md colors",
+    "ignoreValue": "#0007"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 141,
+    "snippet": "font-size: 1.3rem is off the DESIGN.md type ramp",
+    "ignoreValue": "1.3rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 165,
+    "snippet": "font-size: .85rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".85rem"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 179,
+    "snippet": "Undocumented color #0001 is outside DESIGN.md colors",
+    "ignoreValue": "#0001"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 180,
+    "snippet": "font-size: .85rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".85rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 187,
+    "snippet": "font-size: 2.15rem is off the DESIGN.md type ramp",
+    "ignoreValue": "2.15rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 187,
+    "snippet": "font-size: .88rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".88rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 187,
+    "snippet": "font-size: .87rem is off the DESIGN.md type ramp",
+    "ignoreValue": ".87rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 187,
+    "snippet": "font-size: 16px is off the DESIGN.md type ramp",
+    "ignoreValue": "16px"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 190,
+    "snippet": "Undocumented color #000b is outside DESIGN.md colors",
+    "ignoreValue": "#000b"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\domin\\Coding\\Portfolio\\ReactPorfolio\\src\\index.css",
+    "line": 198,
+    "snippet": "Undocumented color #0003 is outside DESIGN.md colors",
+    "ignoreValue": "#0003"
+  }
+]
