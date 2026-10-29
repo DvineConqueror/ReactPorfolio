@@ -1,0 +1,127 @@
+:root[data-season] { --season-line: #8b7a87; --season-ground: #d8c9bf; --season-shadow: #463d50; --season-ghost: #e4dce9; --season-cloth: #69516e; --season-evergreen: #315b4a; --season-snowcap: #f0f4f2; --season-snow: #647d88; }
+:root[data-season="halloween"] { --season-accent: #9a3412; }
+:root[data-season="christmas"] { --season-accent: #166534; --season-line: #718b7a; --season-ground: #dbe7e5; }
+:root[data-theme="dark"][data-season] { --season-line: #776c80; --season-ground: #302832; --season-shadow: #c1b4cf; --season-ghost: #b4b1c4; --season-cloth: #7b6594; --season-evergreen: #4d7965; --season-snowcap: #c9dbd8; --season-snow: #e4f2fa; }
+:root[data-theme="dark"][data-season="halloween"] { --season-accent: #fdba74; }
+:root[data-theme="dark"][data-season="christmas"] { --season-accent: #86efac; --season-line: #8aa695; --season-ground: #273b37; }
+:root[data-season="halloween"] { --bg: #e8dfd2; --ink: #302535; --muted: #625064; --subtle: #ded2c3; --fill: #d6c5b4; --line: #bba89b; --strong-line: #917461; --shadow: 0 8px 22px -14px #582a2340; --season-heading: #7b351f; --season-portrait-web: #e9d6c2; --season-line: #736372; }
+:root[data-theme="dark"][data-season="halloween"] { --bg: #140e1c; --ink: #f4e9d6; --muted: #c4a9c7; --subtle: #21172c; --fill: #302039; --line: #49334e; --strong-line: #77566c; --shadow: 0 12px 32px -18px #0009; --season-heading: #f6b76d; --season-portrait-web: #f1dfc5; }
+:root[data-season="christmas"] { --bg: #f1f6f2; --ink: #173a30; --muted: #49665b; --subtle: #e5efe8; --fill: #d8e8dc; --line: #b8d1bf; --strong-line: #7a9e86; --shadow: 0 8px 22px -14px #214a3540; --season-heading: #165338; }
+:root[data-theme="dark"][data-season="christmas"] { --bg: #080f19; --ink: #eaf4eb; --muted: #b1cabc; --subtle: #10212a; --fill: #1b323a; --line: #304650; --strong-line: #638774; --shadow: 0 12px 32px -18px #0009; --season-heading: #b9d7b8; }
+:root[data-season="halloween"] body { background-image: radial-gradient(ellipse at 90% 0,#b6622420,transparent 55%),radial-gradient(ellipse at 0 100%,#79519616,transparent 60%); background-attachment: fixed; }
+:root[data-season="christmas"] body { background-image: radial-gradient(ellipse at 100% 0,#8eae9620,transparent 55%),radial-gradient(ellipse at 0 100%,#ae54430c,transparent 60%); background-attachment: fixed; }
+:root[data-season] .hero h1, :root[data-season] .section-heading h2 { color: var(--season-heading); }
+:root[data-season] .project-stack span, :root[data-season] .stack-list span { background: var(--subtle); }
+:root[data-season] .hero-portrait { border-color: var(--season-accent); }
+:root[data-season="halloween"] .hero-portrait { box-shadow: 0 12px 30px -16px #ad4d2870; }
+:root[data-season="christmas"] .hero-portrait { box-shadow: 0 12px 30px -16px #3b725460; }
+:root[data-season="halloween"] .section-block { position: relative; }
+:root[data-season="halloween"] .section-block::after { content: ""; position: absolute; top: 0; right: 0; width: 64px; height: 64px; background: var(--season-accent); opacity: .25; pointer-events: none; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='black' stroke-width='1.5'%3E%3Cpath d='M0 0h100v100M25 0v20h20v20h20v20h18v20h17M50 0v16h18v18h16v18h16M75 0v12h13v13h12M0 0l100 100M25 0l75 100M50 0l50 100'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat; }
+.hero-portrait .portrait-seasonal { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; border-radius: 10px; }
+.hero-portrait .portrait-toggle { z-index: 2; }
+.season-weather[data-weather="christmas"] { z-index: 5; }
+.season-weather[data-weather="christmas"] .season-snowflake { opacity: .5; border-radius: 50%; }
+:root[data-season="halloween"] .season-web-corner { width: clamp(64px,7vw,112px); opacity: .6; }
+.site-shell { position: relative; isolation: isolate; }
+.theme-control { justify-content: flex-start; gap: .65rem; }
+.season-control { position: relative; margin-right: auto; }
+.icon-button.season-toggle { color: var(--season-accent,var(--muted)); }
+.season-glyph { width: 20px; height: 20px; }
+.season-picker { position: fixed; inset: auto; margin: 0; width: min(270px,calc(100vw - 16px)); max-height: calc(100dvh - 16px); overflow: auto; padding: 1rem; border: 1px solid var(--strong-line); border-radius: 12px; background: var(--bg); color: var(--ink); box-shadow: 0 12px 32px -12px #0005; z-index: 30; display: none; opacity: 0; transform: scale(.97); transition: opacity 180ms cubic-bezier(.23,1,.32,1), transform 180ms cubic-bezier(.23,1,.32,1), display 180ms allow-discrete, overlay 180ms allow-discrete; }
+.season-picker { pointer-events: none; }
+.season-picker:popover-open { display: grid; opacity: 1; transform: scale(1); pointer-events: auto; }
+.season-picker[data-fallback-open="true"] { display: grid; opacity: 1; transform: scale(1); pointer-events: auto; }
+@starting-style { .season-picker:popover-open, .season-picker[data-fallback-open="true"] { opacity: 0; transform: scale(.97); } }
+.season-picker[data-instant="true"] { transition: none; }
+.season-picker fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.season-picker legend { padding: 0; margin-bottom: .8rem; font-size: .9rem; font-weight: 600; }
+.season-option { display: flex; align-items: center; gap: .7rem; padding: .65rem .6rem; border: 1px solid transparent; border-radius: 6px; min-height: 44px; cursor: pointer; font-size: .85rem; }
+.season-option[data-selected="true"] { background: var(--fill); border-color: var(--strong-line); }
+.season-option input { margin-left: auto; }
+.season-option .season-glyph { color: var(--season-accent,var(--ink)); }
+.season-option:focus-within { outline: 2px solid var(--ink); outline-offset: 2px; }
+.season-motion { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 44px; margin-top: .8rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .77rem; cursor: pointer; }
+.season-picker input { accent-color: var(--season-accent,var(--ink)); width: 16px; height: 16px; flex: 0 0 16px; }
+.season-device-note { color: var(--muted); font-size: .72rem; margin-top: .5rem; max-width: 28ch; }
+.season-stage { grid-column: 1/-1; position: relative; height: 112px; width: 100%; overflow: hidden; pointer-events: none; }
+.season-scene-layer { position: absolute; inset: 0; opacity: 0; transition: opacity 200ms cubic-bezier(.23,1,.32,1); }
+.season-scene-layer[data-active="true"] { opacity: 1; }
+@starting-style { .season-scene-layer[data-active="true"] { opacity: 0; } }
+.season-scene-layer[data-active="false"] .season-animate { animation: none !important; }
+:root[data-season-instant="true"] .season-scene-layer { transition: none; }
+.season-stage .season-art { position: absolute; right: 0; bottom: 0; width: 900px; max-width: none; height: 112px; }
+.season-weather { position: fixed; inset: 0; z-index: 5; overflow: hidden; pointer-events: none; }
+.season-web-corner { position: absolute; top: 0; right: 0; width: clamp(48px,5vw,88px); color: var(--season-line); opacity: .5; transform: scaleX(-1); }
+.season-web-corner .season-web { width: 100%; height: auto; }
+.season-web-left { right: auto; left: 0; transform: none; }
+.season-web-bottom { top: auto; bottom: 0; transform: scale(-1); }
+.season-edge-spider { position: absolute; top: 28px; width: 30px; height: 36px; color: var(--ink); animation: season-spider-travel 14s ease-in-out -4s infinite; }
+.season-edge-spider-left { left: 25px; }
+.season-edge-spider-right { right: 25px; animation-duration: 19s; animation-delay: -12s; }
+.season-edge-spider svg { width: 100%; height: 100%; }
+.spider-silk { position: absolute; width: 1px; height: 100vh; bottom: calc(100% - 12px); left: 50%; background: var(--season-line); opacity: .7; }
+.season-lightning { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse at 90% 0,#e6dbfa33,transparent 65%); animation: season-storm 17s linear -7s infinite; }
+.season-lightning-streak { position: absolute; top: 0; right: 0; width: clamp(70px,10vw,160px); height: 68vh; fill: none; stroke: var(--season-line); stroke-width: 2; filter: drop-shadow(0 0 3px #e7d7fa); }
+.season-lightning-far { right: auto; left: 0; transform: scaleX(-1); width: 70px; opacity: .55; }
+@keyframes season-spider-travel { 0%,100% { transform: translateY(0); } 45%,55% { transform: translateY(210px); } }
+/* One restrained flash per cycle; motion-disabled modes suppress it entirely. */
+@keyframes season-storm { 0%,69%,73%,100% { opacity: 0; } 70% { opacity: .85; } 72% { opacity: .2; } }
+:root[data-season-motion="off"] .season-lightning, :root[data-season-hidden] .season-lightning, :root[data-theme-reveal] .season-lightning, :root:has(dialog[open]) .season-lightning { visibility: hidden; }
+.season-snowflake { position: absolute; top: -8px; left: var(--snow-x); width: var(--snow-size); height: var(--snow-size); background: var(--season-snow); opacity: .3; animation: season-snowfall var(--snow-duration) linear var(--snow-delay) infinite; }
+.season-chrome-lights { display: flex; align-items: flex-start; justify-content: space-around; position: fixed; left: 0; top: 0; width: 100%; height: 12px; pointer-events: none; z-index: 20; }
+.season-chrome-lights::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--season-evergreen); }
+.season-chrome-lights span { position: relative; width: 5px; height: 9px; margin-top: 2px; border-bottom: 2px solid #a9564d; background: #d9b661; }
+.season-chrome-lights span:nth-child(3n) { background: #8aaa8a; border-color: #4c7660; }
+.season-chrome-lights span:nth-child(3n + 1) { background: #c86c61; border-color: #985047; }
+.christmas-top-greenery { position: fixed; top: 2px; inset-inline: 0; height: 64px; z-index: 6; pointer-events: none; }
+.christmas-mistletoe { position: absolute; top: 0; right: 12px; width: 48px; height: 60px; }
+.christmas-mistletoe:first-child { right: auto; left: 12px; }
+.season-aurora { display: none; position: fixed; inset: -8vh -8vw auto; height: 65vh; z-index: -1; pointer-events: none; overflow: hidden; opacity: .3; }
+.season-aurora svg { width: 100%; height: 100%; filter: blur(14px); }
+:root[data-theme="dark"][data-season="christmas"] .season-aurora { display: block; animation: season-aurora 28s ease-in-out -8s infinite; }
+@keyframes season-aurora { 0%,12%,90%,100% { opacity: 0; transform: translate3d(-3vw,-2vh,0) scale(1.04); } 40%,58% { opacity: .48; transform: translate3d(3vw,2vh,0) scale(1); } }
+:root[data-season-motion="off"] .season-aurora { animation: none !important; opacity: .22; }
+.lantern-light { opacity: .8; animation: season-lamplight 3400ms cubic-bezier(.77,0,.175,1) infinite alternate; }
+.christmas-light { opacity: .9; animation: season-lamplight 3400ms cubic-bezier(.77,0,.175,1) var(--light-delay,0s) infinite alternate; }
+.seasonal-spider { animation: season-spider-arrive 480ms cubic-bezier(.23,1,.32,1) both; }
+:root[data-season-motion="off"] .season-animate, :root[data-season-hidden] .season-animate, :root[data-theme-reveal] .season-animate, :root:has(dialog[open]) .season-animate { animation-play-state: paused !important; }
+@keyframes season-snowfall { from { transform: translate3d(0,-8px,0); } to { transform: translate3d(var(--snow-drift),calc(100dvh + 16px),0); } }
+@keyframes season-lamplight { from { opacity: .45; } to { opacity: 1; } }
+@keyframes season-spider-arrive { from { transform: translateY(-44px); } to { transform: translateY(0); } }
+@media (min-width:1024px) {
+  .season-chrome-lights { left: 14rem; width: calc(100% - 14rem); }
+  .christmas-top-greenery { left: 14rem; }
+  .season-web-left, .season-lightning-far { left: 14rem; }
+  :root[data-season="halloween"] .season-web-left { width: clamp(56px,5vw,80px); }
+  .season-edge-spider-left { left: calc(14rem + 4px); }
+}
+@media (max-width:1023px) {
+  :root[data-season="halloween"] .season-web-corner { width: 36px; opacity: .3; }
+  .season-web-corner:not(.season-web-bottom) { top: 5rem; }
+  .season-edge-spider { top: 110px; width: 16px; height: 22px; }
+  .season-edge-spider-left { left: -2px; }
+  .season-edge-spider-right { right: -2px; }
+  .christmas-top-greenery { top: 5rem; height: 36px; }
+  .christmas-mistletoe { width: 25px; height: 32px; right: 0; }
+  .christmas-mistletoe:first-child { left: 0; }
+}
+@media (max-width:767px) {
+  .season-stage { height: 80px; }
+  .season-stage .season-art { transform: scale(.7142857); transform-origin: bottom right; }
+  .season-stage .christmas-art { width: 640px; }
+  .season-snowflake:nth-child(n + 49), .season-chrome-lights span:nth-child(n + 13) { display: none; }
+  :root[data-season="halloween"] .season-web-corner { display: block; width: 36px; opacity: .3; }
+  :root[data-season="halloween"] .season-web-corner:not(.season-web-bottom) { top: 5rem; }
+  .season-lightning-streak { width: 44px; opacity: .5; }
+  :root[data-season="halloween"] .section-block::after { width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .season-animate { animation: none !important; }
+  .season-snowflake, .season-lightning { display: none; }
+  :root[data-theme="dark"][data-season="christmas"] .season-aurora { opacity: .22; }
+  .season-picker, .season-scene-layer { transition: none; }
+}
+@media (prefers-reduced-transparency:reduce) { .season-picker { background: var(--bg); box-shadow: none; } .season-web-corner { opacity: .65; } }
+@media (prefers-contrast:more) { .season-picker, .season-option[data-selected="true"] { border-color: var(--ink); } .season-snowflake, .season-lightning { display: none; } .season-web-corner { opacity: .3; } }
+@media (prefers-contrast:more), (prefers-reduced-transparency:reduce) { .season-aurora { display: none !important; } }
+@media (prefers-contrast:more) { :root[data-season][data-theme] { --line: var(--ink); --strong-line: var(--ink); --muted: var(--ink); } :root[data-season] body { background-image: none; } }

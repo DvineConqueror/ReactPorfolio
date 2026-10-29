@@ -3,8 +3,10 @@ import { Contrast, Palette } from "lucide-react";
 import original from "../assets/MyImage.png";
 import atlas from "../assets/portrait/smooth-atlas.webp";
 import { advancePortraitPose, PORTRAIT_CENTER, portraitTarget, type PortraitPose } from "../domain/portrait";
+import type { Season } from "../domain/season";
+import { PortraitSeasonDecoration } from "./SeasonalArt";
 
-export function InteractivePortrait() {
+export function InteractivePortrait({ season = "off" }: { season?: Season }) {
   const frame = useRef<HTMLDivElement>(null);
   const [color, setColor] = useState(false);
   const [pose, setPose] = useState<PortraitPose>({ column: 3, row: 3 });
@@ -66,6 +68,7 @@ export function InteractivePortrait() {
       <img className={`portrait-original${showAtlas ? " is-hidden" : ""}`} src={original} alt="Henry Alicoben portrait" width="400" height="400" />
       {tracking && !atlasFailed && <img className={`portrait-atlas${showAtlas ? " is-active" : ""}`} style={{ "--pose-column": pose.column, "--pose-row": pose.row } as CSSProperties} src={atlas} alt="" aria-hidden="true" onLoad={() => setAtlasReady(true)} onError={() => setAtlasFailed(true)} width="1254" height="1254" />}
     </div>
+    <PortraitSeasonDecoration season={season} />
     <button className="icon-button portrait-toggle" type="button" onClick={() => setColor((value) => !value)} aria-pressed={color} aria-label={color ? "Show portrait in black and white" : "Show portrait in color"}>{color ? <Contrast aria-hidden="true" /> : <Palette aria-hidden="true" />}</button>
   </div>;
 }

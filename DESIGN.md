@@ -197,6 +197,16 @@ Controls are compact and quiet: button padding (.7rem 1rem), minimum height (44p
 
 The icon theme control retains system/light/dark cycling. Effective palette changes reveal through a 20-point stepped pixel aperture originating at the active control, using a 580ms native View Transition with cubic-bezier(.4,0,.2,1). The shape echoes the pixel wordmark rather than a circular wipe. New root snapshots sit above the old without blending; ordinary color transitions are suppressed only during the reveal to avoid mixed-theme text. Same-palette selections skip the reveal. Rapid requests cancel old snapshots and stale callbacks; reduced motion switches directly, including when enabled mid-animation. Unsupported APIs preserve normal palette selection. System preference updates remain automatic; no looping effect or additional dependency is introduced.
 
+### Seasonal modes
+
+The adjacent season icon offers Off, Halloween and Christmas in an anchored nonmodal picker. Season/motion preferences are manual, remembered separately from palette, and default to Off/motion-on. Native popover dismissal is reused with an inline positioned fallback; React 18's missing popover props are handled on the native DOM element. Escape/selection restore the trigger; mobile navigation remains the parent dialog. Pointer opening uses a 180ms opacity/.97-scale transition; keyboard interaction is immediate.
+
+Original inline SVG pixel folk-art sits in a reserved hero-bottom scene: 112px at 768px and above, 80px on phones. Halloween includes stitched scarecrow, lanterns, cobwebs, spider, ghost and fence/grave silhouettes. Christmas includes snowy cabin/pines, decorated tree, gifts, mistletoe and a top-edge light string. Scene layers crossfade over 200ms; inactive layers have no running animations. Off unmounts both scenes and all atmospheric elements immediately. Artwork is aria-hidden, unfocusable and pointer-transparent. Phone art crops only spare background scenery, retaining the main figures.
+
+Seasonal color stays in artwork/control accents: Halloween #9a3412 in light and #fdba74 in dark; Christmas #166534 in light and #86efac in dark. Page ink/surfaces, portrait, screenshots, certificates and documents retain their original palette. Snow is subtle and behind content; lights occupy only the upper 12px of chrome, clear of controls. Desktop webs occupy the spare right gutter; phones keep webs in the scene.
+
+Snow uses 32 deterministic transform-only CSS flakes, with only 16 displayed/animated below 768px, 10–18s linear falls and negative delays. Lantern/window/light brightness varies with opacity over 3400ms; the spider enters once over 480ms. Motion pauses for hidden pages, open dialogs, theme snapshots and the visitor pause switch, without replacing particles. Reduced motion removes snow/movement/pulsing while retaining static scene art and explains the device override. Increased contrast hides snow; reduced transparency keeps the picker solid. Seasonal selection/motion changes settle any pending theme snapshot to the requested palette first. No new dependencies or animation clock.
+
 ### Chips and evidence frames
 
 Stack chips use the strong border, muted mono labels and compact pill padding. Featured project previews show a snapshot count below contained images (4:3, switching to 16:10 on phones); other-project previews use 16:10. Every project has an explicit Explore project action. One project dialog combines contained screenshots, count/caption, multi-image navigation/thumbnails, overview, Developer role, contributions, feature bullets, full stack and Source link when available. Unknown metadata is omitted. The centered desktop panel is at most 56rem; below 768px it fills 100dvh with safe-area padding and a sticky close/header row. Native dialog focus/inertness and the shared Lenis/body scroll lock are reused; galleries never open a second modal. Certificate previews retain their complete source ratio (792:612) and open full previews with original downloads.
@@ -237,7 +247,15 @@ Portrait tracking maps pointer position continuously into a 6×6 atlas of 36 gen
 ## Design Direction Contract
 THESIS: Quiet technical zine; the artifact leads and interface recedes.
 OWN-WORLD: Bryl monochrome, pixel display, mono metadata, hairlines, generous rhythm.
-STORY: Introduction → two selected projects → working approach and skills → source-backed credentials → contact and protected résumé.
+STORY: Introduction → four featured and four other projects → working approach and skills → source-backed credentials → GitHub activity → contact and protected résumé.
 FIRST VIEWPORT: Identity/sidebar, concise introduction, portrait/halftone and beginning of selected work on desktop; compact header/introduction on mobile.
 FORM: Sidebar-to-overlay navigation, split project rows, contain-fit media, accessible modal viewers.
 SIGNATURE INTERACTION: Project preview opens an image-focused gallery; résumé transitions from human verification to a selectable, zoomable document without leaving the site.
+
+## Seasonal atmosphere and activity follow-up
+
+Seasonal mode is an explicit exception to neutral-only styling: dim parchment/plum for Halloween light, deep plum for Halloween dark, evergreen winter surfaces for Christmas. Keep foreground contrast readable. Original curve-web SVGs and silk-mounted spiders stay in gutters; lightning uses one low-opacity pulse every 17 seconds, never rapid strobing. Only opacity/transform animate. Device reduced motion removes weather/flash animation; the visitor's motion switch pauses decorations and hides lightning. Sidebar/menu controls and project imagery stay clear.
+
+The GitHub section reuses pixel statistic numerals, mono metadata, hairlines and contained surfaces. Heatmap levels follow the selected seasonal accent; the base palette uses muted green. Use a scrollable calendar on small screens and a disclosure with daily count table for keyboard/touch access. All totals and streaks name their date range. Data loading/failure states keep the profile link available.
+
+Christmas character scene: original pixel snowman, reindeer, Santa, two elves and presents form a small winter village. Scale the Christmas scene separately on phones to keep the complete cast visible. Top mistletoe occupies the outer corners below the mobile header. Dark Christmas has midnight navy surfaces and broad green/violet aurora curtains behind content; a 28-second opacity/transform cycle includes a dark interval. Pause/reduced-motion states use a static faint curtain, while contrast/transparency preferences remove it.

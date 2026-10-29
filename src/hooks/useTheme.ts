@@ -6,6 +6,7 @@ export function useTheme() {
   const [theme, updateTheme] = useState<Theme>(() => { try { const saved = localStorage.getItem("portfolio-theme"); return saved === "dark" || saved === "light" ? saved : "system"; } catch { return "system"; } });
   const preference = useRef(theme);
   const resolve = (value: Theme) => value === "system" ? matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light" : value;
+  const settleTheme = () => revealTheme(resolve(preference.current), undefined, false);
   const setTheme = (value: Theme, origin?: HTMLElement) => {
     preference.current = value;
     updateTheme(value);
@@ -24,5 +25,5 @@ export function useTheme() {
     motion.addEventListener("change", settle);
     return () => { media.removeEventListener("change", update); motion.removeEventListener("change", settle); cancelThemeTransition(); };
   }, []);
-  return { theme, setTheme };
+  return { theme, setTheme, settleTheme };
 }
