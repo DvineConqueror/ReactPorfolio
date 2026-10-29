@@ -175,7 +175,7 @@ Frontmatter records the reusable roles. The root is 15px, so rem values resolve 
 
 The desktop breakpoint (1024px) introduces a fixed sidebar (14rem wide) and main surface with horizontal gutters (`clamp(2rem,5vw,5rem)`) and maximum outer width (`calc(56rem + 10rem)`). At 1500px the main surface centers with a 7rem translation to account for the sidebar. Smaller viewports use a sticky top bar, main maximum width (60rem), and gutters (1.5rem).
 
-Project rows split image/copy (1.1fr/1fr), separated by a 1.75rem gap; project-to-project rhythm is 2.5rem. Media remains sticky on larger screens. Certificates form two columns, approach items three, and contact divides .8fr/1.2fr. Section blocks use a top hairline and 3.5rem vertical padding.
+Four featured project rows split image/copy (1.1fr/1fr), separated by a 1.75rem gap; project-to-project rhythm is 2.5rem. Media remains sticky on larger screens. Four other projects use a compact two-column grid from 768px, one column below. Their previews contain the full image, including portrait SmartDTR; small Typeroo images are not enlarged beyond their source resolution in the viewer. Certificates form two columns, approach items three, and contact divides .8fr/1.2fr. Section blocks use a top hairline and 3.5rem vertical padding.
 
 Below 768px, gutters become 1rem, projects/certificates/approach/contact stack, media becomes static and sections use 2.75rem padding. The hero retains a compact portrait column (6.5rem), switching to one column below 381px. Name/email fields also stack at that narrow breakpoint. The menu occupies the viewport; the phone résumé reader uses the full viewport and safe-area padding.
 
@@ -197,7 +197,7 @@ Controls are compact and quiet: button padding (.7rem 1rem), minimum height (44p
 
 ### Chips and evidence frames
 
-Stack chips use the strong border, muted mono labels and compact pill padding. Project previews show a gallery hint/count below contained images (4:3, switching to 16:10 on phones). Certificate previews retain their complete source ratio (792:612) and open full previews with original downloads. Project implementation details use native disclosure rather than another card layer.
+Stack chips use the strong border, muted mono labels and compact pill padding. Featured project previews show a snapshot count below contained images (4:3, switching to 16:10 on phones); other-project previews use 16:10. Every project has an explicit Explore project action. One project dialog combines contained screenshots, count/caption, multi-image navigation/thumbnails, overview, Developer role, contributions, feature bullets, full stack and Source link when available. Unknown metadata is omitted. The centered desktop panel is at most 56rem; below 768px it fills 100dvh with safe-area padding and a sticky close/header row. Native dialog focus/inertness and the shared Lenis/body scroll lock are reused; galleries never open a second modal. Certificate previews retain their complete source ratio (792:612) and open full previews with original downloads.
 
 ### Inputs and fields
 
