@@ -97,3 +97,4 @@ output/playwright/expanded-projects-result.txt
 output/playwright/expanded-projects-evidence.json
 output/playwright/expanded-projects-check.js
 output/aio-stack-evidence.json
+/output

@@ -6,7 +6,7 @@ import type { Theme } from "../hooks/useTheme";
 import { portfolio } from "../content/portfolio";
 
 const sections = [["home", "Overview"], ["work", "Projects"], ["about", "About & skills"], ["certifications", "Certifications"], ["contact", "Contact"]] as const;
-export function SiteHeader({ theme, onThemeChange }: { theme: Theme; onThemeChange: (value: Theme) => void }) {
+export function SiteHeader({ theme, onThemeChange }: { theme: Theme; onThemeChange: (value: Theme, origin?: HTMLElement) => void }) {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {

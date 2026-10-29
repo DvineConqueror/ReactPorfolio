@@ -139,6 +139,13 @@ nav a[aria-current] .nav-arrow, nav a:hover .nav-arrow { opacity: 1; }
 .theme-control { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: space-between; color: var(--muted); font-size: .7rem; padding-top: 1.5rem; border-top: 1px solid var(--line); margin-top: 1.5rem; }
 .theme-toggle { color: var(--muted); }
 .theme-toggle:hover, .theme-toggle:focus-visible { color: var(--ink); }
+:root[data-theme-reveal] *, :root[data-theme-reveal] { transition: none !important; }
+:root[data-theme-reveal]::view-transition { pointer-events: none; }
+:root[data-theme-reveal]::view-transition-group(root) { animation: none; }
+:root[data-theme-reveal]::view-transition-image-pair(root) { isolation: isolate; }
+:root[data-theme-reveal]::view-transition-old(root), :root[data-theme-reveal]::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+:root[data-theme-reveal]::view-transition-old(root) { z-index: 1; }
+:root[data-theme-reveal]::view-transition-new(root) { z-index: 2; }
 .modal { width: min(960px,calc(100% - 2rem)); max-height: calc(100dvh - 2rem); margin: auto; padding: 1.5rem; border: 1px solid var(--strong-line); border-radius: 16px; background: var(--bg); color: var(--ink); box-shadow: 0 40px 90px -20px #0006; overscroll-behavior: contain; overflow: auto; }
 .modal[open] { animation: modal-enter 200ms var(--ease); }
 .modal::backdrop { background: #0007; backdrop-filter: blur(8px); }
