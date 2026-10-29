@@ -29,3 +29,5 @@ Existing project screenshots and portrait in src/assets, with supplied images fo
 
 ## Accessibility and inclusion
 Keyboard-operable navigation and overlays; visible focus, readable contrast, text selection in PDF, reduced motion, reduced transparency, high contrast and responsive text. Turnstile filters bots; it does not verify identity or prevent copying after access.
+
+Portrait follow-up: supplied Resume-img.png replaces the emoji portrait. A generated 36-pose sheet retains existing smooth cursor tracking; the lossless original is the static fallback. Larger responsive portrait and transparent icon-only color control retain a 44px target and visible keyboard focus. Generation source and exact prompt are retained in src/assets/portrait/real-*.

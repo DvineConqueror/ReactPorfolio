@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Contrast, Palette } from "lucide-react";
-import original from "../assets/MyImage.png";
-import atlas from "../assets/portrait/smooth-atlas.webp";
+import original from "../assets/portrait/real-original.webp";
+import atlas from "../assets/portrait/real-atlas.webp";
 import { advancePortraitPose, PORTRAIT_CENTER, portraitTarget, type PortraitPose } from "../domain/portrait";
 import type { Season } from "../domain/season";
 import { PortraitSeasonDecoration } from "./SeasonalArt";
@@ -65,7 +65,7 @@ export function InteractivePortrait({ season = "off" }: { season?: Season }) {
   const direction = [vertical, horizontal].filter(Boolean).join("-") || "center";
   return <div ref={frame} className={`hero-portrait${color ? " is-color" : ""}`} data-direction={showAtlas ? direction : "center"} data-column={pose.column} data-row={pose.row}>
     <div className="portrait-viewport">
-      <img className={`portrait-original${showAtlas ? " is-hidden" : ""}`} src={original} alt="Henry Alicoben portrait" width="400" height="400" />
+      <img className={`portrait-original${showAtlas ? " is-hidden" : ""}`} src={original} alt="Henry Alicoben portrait" width="1254" height="1254" />
       {tracking && !atlasFailed && <img className={`portrait-atlas${showAtlas ? " is-active" : ""}`} style={{ "--pose-column": pose.column, "--pose-row": pose.row } as CSSProperties} src={atlas} alt="" aria-hidden="true" onLoad={() => setAtlasReady(true)} onError={() => setAtlasFailed(true)} width="1254" height="1254" />}
     </div>
     <PortraitSeasonDecoration season={season} />

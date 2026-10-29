@@ -37,3 +37,9 @@ Suggested commit: `feat: enrich seasonal atmosphere and add GitHub activity`
 Added original SVG snowman, Santa, reindeer, two elves, gifts and mistletoe at both top edges. Dark Christmas now uses midnight navy and green/violet aurora curtains on a slow 28-second cycle with a dark interval. Existing motion preferences control the aurora; light mode hides it. Christmas scene scales independently on phones to retain the full cast. Verification recorded in GATES-christmas.md.
 
 Follow-up verification: 50 tests, lint, frontend/Worker typechecks, build and private résumé guard passed. Production Chromium preview checked at 1280/390/320 widths; complete cast fits, no overflow, pause/reduced-motion/high-contrast and light-mode hiding verified. GATES-christmas.md: 3 met, 0 unmet, 0 abandoned. Not committed/deployed; real-device Safari still untested.
+
+## Real portrait follow-up
+
+Replaced the emoji portrait with the supplied real photo and a built-in imagegen 6x6 directional atlas. Existing 110ms tracking and static touch/reduced-motion fallback are retained. Color toggle background/border removed while retaining the 44px hit target and focus ring. Portrait columns enlarged to 12rem desktop/8rem phone, with a 10rem stacked portrait below 381px. Narrow viewport minimum width now accounts for scrollbar space. Browser evidence: left/right poses reached columns 1/5, color toggle removed grayscale, original photo replaced atlas with reduced motion, 390px layout fits. Final checks recorded in GATES-real-portrait.md.
+
+Final portrait checks: 50 tests, lint, frontend/Worker typechecks, production build and private resume guard passed. Desktop/390px and stacked 320px portrait verified. At 320px the existing Turnstile flexible widget minimum leaves about 5px page overflow; portrait itself fits. No deployment; real-device touch/Safari untested. Exact generation prompt: src/assets/portrait/real-generation-prompt.txt.

@@ -124,7 +124,7 @@ components:
 
 Bryl minimal is the approved visual authority: monochrome surfaces, pixel display type, mono metadata, fine rules and restrained framing. The artifact leads and the interface recedes. The density is compact enough to introduce selected work in the first desktop viewport, with room around screenshots and readable project summaries.
 
-Original project screenshots and certificates retain their colors. The portrait starts grayscale and offers a color toggle. On hover-capable fine pointers, a dense generated head-pose sheet follows nearby cursor position through intermediate angles; the supplied face-covering emoji remains intact. A single static halftone field sits behind its lightly rotated frame. The favicon is a matching monochrome pixel “ha.” monogram.
+Original project screenshots and certificates retain their colors. The portrait starts grayscale and offers a color toggle. On hover-capable fine pointers, a dense generated head-pose sheet follows nearby cursor position through intermediate angles; the supplied real portrait replaces the earlier emoji photo. A single static halftone field sits behind its lightly rotated frame. The favicon is a matching monochrome pixel “ha.” monogram.
 
 **Key Characteristics:**
 
@@ -177,7 +177,7 @@ The desktop breakpoint (1024px) introduces a fixed sidebar (14rem wide) and main
 
 Four featured project rows split image/copy (1.1fr/1fr), separated by a 1.75rem gap; project-to-project rhythm is 2.5rem. Media remains sticky on larger screens. Four other projects use a compact two-column grid from 768px, one column below. Their previews contain the full image, including portrait SmartDTR; small Typeroo images are not enlarged beyond their source resolution in the viewer. Certificates form two columns, approach items three, and contact divides .8fr/1.2fr. Section blocks use a top hairline and 3.5rem vertical padding.
 
-Below 768px, gutters become 1rem, projects/certificates/approach/contact stack, media becomes static and sections use 2.75rem padding. The hero retains a compact portrait column (6.5rem), switching to one column below 381px. Name/email fields also stack at that narrow breakpoint. The menu occupies the viewport; the phone résumé reader uses the full viewport and safe-area padding.
+Below 768px, gutters become 1rem, projects/certificates/approach/contact stack, media becomes static and sections use 2.75rem padding. The hero retains a portrait column (8rem), switching to one column with a 10rem portrait below 381px. Name/email fields also stack at that narrow breakpoint. The menu occupies the viewport; the phone résumé reader uses the full viewport and safe-area padding.
 
 ## Elevation & Depth
 
@@ -227,7 +227,7 @@ Native dialogs provide focus containment, Escape dismissal, background inertness
 
 Dialog entry takes 200ms with opacity and scale (.97 to 1); the shared ease is `cubic-bezier(.16,1,.3,1)`. Theme surfaces transition over 500ms. Portrait grayscale toggles over 350ms. Lenis smooths wheel/programmatic navigation while touch remains native. Reduced motion removes smoothing, transitions, animation and decorative hover movement. Only the loading indicator loops; the hero halftone stays static.
 
-Portrait tracking maps pointer position continuously into a 6×6 atlas of 36 generated poses. A time-based 110ms damping response carries the current head angle toward its target, including through neutral on reversals; elapsed time is capped to avoid a jump after a stalled frame. Small frame-boundary overlap prevents jitter. Only one fully opaque atlas image is displayed: no photo crossfades or animated sprite-coordinate sliding. One requestAnimationFrame loop runs only while the head is settling, and the portrait frame stays anchored. The 260px nearby radius, color toggle, pointer-departure/scroll/blur resets and static original on touch/coarse pointers, reduced motion or loading failure remain. The shipped source is `src/assets/portrait/smooth-atlas.webp`; its generated PNG and exact prompt are retained alongside it. The new favicon URL includes a version suffix so browsers fetch the updated design.
+Portrait tracking maps pointer position continuously into a 6×6 atlas of 36 generated poses. A time-based 110ms damping response carries the current head angle toward its target, including through neutral on reversals; elapsed time is capped to avoid a jump after a stalled frame. Small frame-boundary overlap prevents jitter. Only one fully opaque atlas image is displayed: no photo crossfades or animated sprite-coordinate sliding. One requestAnimationFrame loop runs only while the head is settling, and the portrait frame stays anchored. The 260px nearby radius, color toggle, pointer-departure/scroll/blur resets and static original on touch/coarse pointers, reduced motion or loading failure remain. The shipped source is `src/assets/portrait/real-atlas.webp`; its generated PNG and exact prompt are retained alongside it. The new favicon URL includes a version suffix so browsers fetch the updated design.
 
 ## Do's and Don'ts
 
