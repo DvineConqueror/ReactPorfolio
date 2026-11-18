@@ -17,4 +17,5 @@ export default tseslint.config(
     plugins: { "react-hooks": reactHooks, "react-refresh": reactRefresh },
     rules: { ...reactHooks.configs.recommended.rules, "react-refresh/only-export-components": ["warn", { allowConstantExport: true }], "@typescript-eslint/no-misused-promises": ["error", { checksVoidReturn: { attributes: false } }] },
   },
+  { files: ["scripts/check-npm-audit*.mjs"], ...tseslint.configs.disableTypeChecked },
 );

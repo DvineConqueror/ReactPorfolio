@@ -26,7 +26,12 @@ jobs:
       - run: npm run build
         env:
           VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
-      - run: npm audit --audit-level=high
+      - name: Audit dependencies
+        run: |
+          report="$RUNNER_TEMP/npm-audit.json"
+          status=0
+          npm audit --audit-level=high --json > "$report" || status=$?
+          node scripts/check-npm-audit.mjs "$status" < "$report"
 
   deploy:
     if: github.event_name == 'push'
